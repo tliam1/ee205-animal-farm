@@ -8,14 +8,39 @@
 /// @author Liam Tapper <tliam@hawaii.edu>
 /// @date   29_Mar_2022
 ///////////////////////////////////////////////////////////////////////////////
-
-#ifndef EE205_LAB_08D_ANIMAL_FARM_1_TO_CLION_CATCLASS_H
-#define EE205_LAB_08D_ANIMAL_FARM_1_TO_CLION_CATCLASS_H
-
+#pragma once
+#include "config.h"
+#include "catDatabase.h"
 
 class catClass {
+public:
+    catClass();
+
+    catClass(char *newName, GenderType gender, BreedType newBreed, catWeight newWeight);
+
+    char *getCatName();
+
+    GenderType getGender() const;
+
+    void setGender(GenderType gender);
+
+    BreedType getBreed() const;
+
+    void setBreed(BreedType breed);
+
+    catWeight getWeight() const;
+
+    void setWeight(catWeight weight);
+
+private:
+    char catName[MAX_CAT_NAME]; //name (empty at default)
+    GenderType gender; //gender (unknown at default)
+    BreedType breed; // breed (Unknown at default)
+    bool isFixed; // false at default
+    catWeight weight; // unknown at default (-1)
+public:
+    catClass* next;
 
 };
 
 
-#endif //EE205_LAB_08D_ANIMAL_FARM_1_TO_CLION_CATCLASS_H
