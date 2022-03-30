@@ -17,5 +17,5 @@
 
 //int addCat(char name[], GenderType gender[], BreedType breed[], bool isFixed[], float weight[]);
 
-int addCat(char catName[], GenderType gender, BreedType breed, bool isFixed, float weight, collarColor, collarColor, unsigned long long);
+int addCat(const char catName[], GenderType gender, BreedType breed, bool isFixed, catWeight weight, collarColor, collarColor, unsigned long long);
 

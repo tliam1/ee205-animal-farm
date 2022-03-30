@@ -12,9 +12,9 @@
 #include "addCat.h"
 //#define DEBUG
 extern struct cat cats[];
-extern int numberOfCats;
+extern numCats numberOfCats;
 
-int addCat(char catName[], GenderType gender, BreedType breed, bool fixed, float catWeight,
+int addCat(const char catName[], GenderType gender, BreedType breed, bool fixed, catWeight catWeight,
            collarColor color1, collarColor color2, unsigned long long licenseNum){
 #ifdef DEBUG
     printf("Name: %s, ", catName);

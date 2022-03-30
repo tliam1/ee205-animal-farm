@@ -15,7 +15,8 @@
 #include <stdio.h>
 #include <string.h>
 #include "config.h"
-
+typedef float catWeight;
+typedef int numCats;
 typedef enum {UNKNOWN_GENDER, MALE, FEMALE} GenderType;
 typedef enum {UNKNOWN_BREED, MAINE_COON, MANX, SHORTHAIR, PERSIAN, SPHYNX} BreedType;
 typedef enum {BLACK, WHITE, RED, BLUE, GREEN, PINK} collarColor;
@@ -25,7 +26,7 @@ typedef enum {BLACK, WHITE, RED, BLUE, GREEN, PINK} collarColor;
 struct cat {
     char name [MAX_CAT_NAME];
     bool isFixed;
-    float weight;
+    catWeight weight;
     unsigned long long license;
 
     BreedType breeds;
@@ -49,5 +50,5 @@ struct cat {
 //extern GenderType genders[MAX_CATS];
 
 void initializeNumCats();
-bool securityCheckCat(float cWeight, char cName[]);
+bool securityCheckCat(catWeight cWeight, const char cName[]);
 

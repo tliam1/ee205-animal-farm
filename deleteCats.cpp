@@ -10,7 +10,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 #include "deleteCats.h"
 extern struct cat cats[];
-extern int numberOfCats;
+extern numCats numberOfCats;
 void deleteAllCats(){
     for (int i = 0; i < MAX_CATS; i++){
         cats[i].isFixed = false;

@@ -15,9 +15,9 @@
 #include <stdio.h>
 #include "config.h"
 
-bool updateCatName(unsigned long index, char newName[]);
+bool updateCatName(unsigned long index, const char newName[]);
 bool fixCat(unsigned long index);
-bool updateCatWeight(unsigned long index, float newWeight);
+bool updateCatWeight(unsigned long index, catWeight newWeight);
 void updateCatCollar1(unsigned long index, collarColor newCollarCol);
 void updateCatCollar2(unsigned long index, collarColor newCollarCol);
 void updateLicense(unsigned long index, unsigned long long newLicense);

@@ -11,9 +11,9 @@
 #include "updateCats.h"
 
 extern struct cat cats[];
-extern int numberOfCats;
+extern numCats numberOfCats;
 
-bool updateCatName(unsigned long index, char newName[]){
+bool updateCatName(unsigned long index, const char newName[]){
 
     if (strlen(newName) > MAX_CAT_NAME)
         return 0;
@@ -41,7 +41,7 @@ bool fixCat(unsigned long index){
     return 1;
 }
 
-bool updateCatWeight(unsigned long index, float newWeight){
+bool updateCatWeight(unsigned long index, catWeight newWeight){
 
     if (newWeight <= 0)
         return 0;

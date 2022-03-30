@@ -19,12 +19,12 @@ char name [MAX_CATS][MAX_CAT_NAME];
 BreedType breeds[MAX_CATS];
 GenderType genders[MAX_CATS];
 */
-int numberOfCats;
+numCats numberOfCats;
 void initializeNumCats(){
     numberOfCats = 0;
 }
 
-bool securityCheckCat(float cWeight, char cName[]){
+bool securityCheckCat(catWeight cWeight, const char cName[]){
     if (cWeight <= 0){
         fprintf(stdout, "%s: Illegal Cat Info!\n", ADD);
         return 0; //0 = false

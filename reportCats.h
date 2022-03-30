@@ -19,7 +19,7 @@
 
 void printCat(unsigned long);
 void printAllCats();
-int findCat(char catName[]);
+int findCat(const char catName[]);
 const char* collarColorName(const collarColor colorName);
 const char* catBreedName(const BreedType breedName);
 const char* catGenderName(const GenderType genderName);

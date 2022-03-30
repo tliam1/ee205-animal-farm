@@ -12,7 +12,7 @@
 #define DEBUG
 
 extern struct cat cats[];
-extern int numberOfCats;
+extern numCats numberOfCats;
 
 void printCat(unsigned long index){
     if (strlen(cats[index].name)==0 || index < 0){
@@ -33,7 +33,7 @@ void printAllCats(){
 }
 
 
-int findCat(char catName[]){
+int findCat(const char catName[]){
     for ( int i = 0; i < MAX_CATS; i++ )
     {
         if (strcmp( cats[i].name, catName ) == 0){
