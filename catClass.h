@@ -34,6 +34,16 @@ public:
 
     void setWeight(catWeight weight);
 
+    virtual ~catClass();
+
+    void print();
+
+    bool validate();
+    bool validateName();
+    bool validateGender();
+    bool validateBreed();
+    bool validateWeight();
+
 private:
     char catName[MAX_CAT_NAME]; //name (empty at default)
     GenderType gender; //gender (unknown at default)
@@ -42,7 +52,6 @@ private:
     catWeight weight; // unknown at default (-1)
 public:
     catClass* next;
-
 };
 
 

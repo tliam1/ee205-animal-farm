@@ -11,6 +11,7 @@
 #pragma once
 #define MAX_CATS 1024
 #define MAX_CAT_NAME 50
+#define DEFAULT_WEIGHT -1
 #include <stdbool.h>
 #include <stdio.h>
 #include <string.h>
