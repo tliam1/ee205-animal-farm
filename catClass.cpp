@@ -12,43 +12,49 @@
 #include "catClass.h"
 
 catClass::catClass() {
- //this will initialize data
+//will initialize data
 }
 
 catClass::catClass(char *newName, GenderType newGender, BreedType newBreed, catWeight newWeight) : catClass() {
-    newGender = getGender();
-    newName = getCatName();
-    newBreed = getBreed();
-    newWeight = getWeight();
+    setGender(newGender);
+    setWeight(newWeight);
+    setBreed(newBreed);
+    setWeight(newWeight);
+
 }
 
-char *catClass::getCatName() {
+const char *catClass::getCatName() const {
     return catName;
+}
+void catClass::setCatName(char* newName){
+    memset(catName, 0, MAX_CAT_NAME);
+    strcpy(catName, newName);
 }
 
 GenderType catClass::getGender() const {
     return gender;
 }
 
-void catClass::setGender(GenderType gender) {
-    catClass::gender = gender;
+void catClass::setGender(GenderType newGender) {
+    catClass::gender = newGender;
 }
 
 BreedType catClass::getBreed() const {
     return breed;
 }
 
-void catClass::setBreed(BreedType breed) {
-    catClass::breed = breed;
+void catClass::setBreed(BreedType newBreed) {
+    catClass::breed = newBreed;
 }
 
 catWeight catClass::getWeight() const {
     return weight;
 }
 
-void catClass::setWeight(catWeight weight) {
-    catClass::weight = weight;
+void catClass::setWeight(catWeight newWeight) {
+    catClass::weight = newWeight;
 }
+
 
 
 

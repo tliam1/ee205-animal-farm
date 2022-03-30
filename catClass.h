@@ -18,15 +18,17 @@ public:
 
     catClass(char *newName, GenderType gender, BreedType newBreed, catWeight newWeight);
 
-    char *getCatName();
+    const char *getCatName() const;
+
+    void setCatName(char* newName);
 
     GenderType getGender() const;
 
-    void setGender(GenderType gender);
+    void setGender(GenderType newGender);
 
     BreedType getBreed() const;
 
-    void setBreed(BreedType breed);
+    void setBreed(BreedType newBreed);
 
     catWeight getWeight() const;
 
