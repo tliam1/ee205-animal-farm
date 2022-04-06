@@ -12,13 +12,13 @@
 #define MAX_CATS 1024
 #define MAX_CAT_NAME 50
 #define DEFAULT_WEIGHT -1
-#include <stdbool.h>
+#include <iostream>
 #include <stdio.h>
 #include <string.h>
 #include "config.h"
 #include "catClass.h"
 
-
+//class catClass* catDatabaseHeadPointer; CREATES MULTIPLE INSTANCES ERRORS IF CALLED HERE!!!!!!!!!!
 //int numberOfCats = 0; moved to database.c for now
 
 struct cat {
@@ -34,19 +34,6 @@ struct cat {
 };
 
 
-
-//extern char name [MAX_CATS][MAX_CAT_NAME];
-
-//typedef enum {UNKNOWN_GENDER, MALE, FEMALE} GenderType;
-//typedef enum {UNKNOWN_BREED, MAINE_COON, MANX, SHORTHAIR, PERSIAN, SPHYNX} BreedType;
-
-//extern bool isFixed [MAX_CATS];
-//extern float weight [MAX_CATS];
-//extern int numberOfCats;
-
-//extern BreedType breeds[MAX_CATS];
-//extern GenderType genders[MAX_CATS];
-
-void initializeNumCats();
+void initializeDatabase();
 bool securityCheckCat(const class catClass* catToCheck);
-
+bool dataValidation();

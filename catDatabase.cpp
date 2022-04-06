@@ -12,19 +12,21 @@
 #include "catDatabase.h"
 
 struct cat cats [MAX_CATS];
-/*bool isFixed [MAX_CATS];
-float weight [MAX_CATS];
-int numberOfCats = 0;
-char name [MAX_CATS][MAX_CAT_NAME];
-BreedType breeds[MAX_CATS];
-GenderType genders[MAX_CATS];
-*/
+class catClass* catDatabaseHeadPointer;
 
-numCats numberOfCats;
-void initializeNumCats(){
-    numberOfCats = 0;
+numCats numberOfCats = 0;
+void initializeDatabase(){
+    //numberOfCats = 0;
+    if (catDatabaseHeadPointer != nullptr){
+
+    }
+
 }
 
 bool securityCheckCat(const class catClass* catToCheck){
+    return 1; //true
+}
+
+bool dataValidation(){
     return 1; //true
 }
