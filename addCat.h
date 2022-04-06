@@ -9,13 +9,13 @@
 /// @date   18_March_2022
 ///////////////////////////////////////////////////////////////////////////////
 #pragma once
-#include <stdbool.h>
+#include <iostream>
 #include "catDatabase.h"
 #include <stdio.h>
 #include <string.h>
 #include "config.h"
-
+#include "catClass.h"
 //int addCat(char name[], GenderType gender[], BreedType breed[], bool isFixed[], float weight[]);
 //add a new cat class OBJ
-int addCat(class catClass* newCat);
+bool addCat(class catClass* newCat); //no longer returning num cats, can be used to check things instead
 

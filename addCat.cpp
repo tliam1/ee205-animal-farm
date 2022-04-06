@@ -11,9 +11,27 @@
 
 #include "addCat.h"
 //#define DEBUG
+extern class catClass* catDatabaseHeadPointer;
 extern struct cat cats[];
 extern numCats numberOfCats;
+//add a cat obj into database(linked list)
+bool addCat(class catClass* newCat){
+    if (newCat == nullptr){
+        //end program
+    }
+    newCat -> validate();
+    if (!dataValidation()){
+        //end program
+    }
 
-int addCat(class catClass* newCat){
-    return numberOfCats++; //if returned the increment of number of cats then we are good to go
+
+    numberOfCats++; //if database is good, and newcat != null then cat is good
+    //note -> is space sensitive, you cannot have white space before/after... learned that the hard way
+    newCat->next = catDatabaseHeadPointer; // assign the new nodes next position to the old head
+    catDatabaseHeadPointer = newCat; //reassign the head pointer (reassign next pointer of old node first)
+
+    if (!dataValidation()){   //if the linked list isnt valid after adding the new cat, fail (something went terribly wrong)
+        //end program
+    }
+    return true;
 }

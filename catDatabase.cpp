@@ -62,6 +62,4 @@ bool dataValidation(){
         return false;
     //else return true
     return true;
-
-    return true;
 }
