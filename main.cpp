@@ -24,7 +24,7 @@ extern struct cat cats[];
 extern int numberOfCats;
 
 int main(){
-    initializeDatabase();
+   /* initializeDatabase();
     assert(addCat( "Loki", MALE, PERSIAN, true, 8.5, BLACK, WHITE, 101 ) == numberOfCats - 1); //this is because we increment numOfCats after we return! Thanks Mark!
 #ifdef DEBUG
     int test = addCat( "Loki", MALE, PERSIAN, true, 8.5, BLACK, WHITE, 101 );
@@ -69,5 +69,6 @@ int main(){
     printAllCats();
 
     return 0;
+    */
 }
 

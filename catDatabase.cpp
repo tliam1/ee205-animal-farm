@@ -53,10 +53,13 @@ bool dataValidation(){
     for(catClass* cat = catDatabaseHeadPointer; cat != nullptr; cat = cat->next){
         //we want to validate the cat (using class validate function)
         //check if the cat has a dup name
+
+        validatedCats++;
     }
 
     //if number of cats is  not equal to the number of validated cats then return false
-
+    if (numberOfCats != validatedCats)
+        return false;
     //else return true
     return true;
 
