@@ -48,5 +48,5 @@ struct cat {
 //extern GenderType genders[MAX_CATS];
 
 void initializeNumCats();
-bool securityCheckCat(catWeight cWeight, const char cName[]);
+bool securityCheckCat(const class catClass* catToCheck);
 

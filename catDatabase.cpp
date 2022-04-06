@@ -25,33 +25,6 @@ void initializeNumCats(){
     numberOfCats = 0;
 }
 
-bool securityCheckCat(catWeight cWeight, const char cName[]){
-    if (cWeight <= 0){
-        fprintf(stdout, "%s: Illegal Cat Info!\n", ADD);
-        return 0; //0 = false
-    }else if (strlen(cName)==0){
-        fprintf(stdout, "%s: Illegal Cat Info!\n", ADD);
-        return 0; //0 = false
-
-    }else if (strlen(cName) > MAX_CAT_NAME){
-        fprintf(stdout, "%s: Illegal Cat Info!\n", ADD);
-        return 0; //0 = false
-
-    }else if (numberOfCats > MAX_CATS){
-        fprintf(stdout, "%s: Illegal Cat Info!\n", ADD);
-        return 0; //0 = false
-    }
-
-
-
-    for ( int i = 0; i < MAX_CATS; i++ )
-    {
-        if ( strcmp( cats[i].name, cName ) == 0 )
-        {
-            fprintf(stdout, "%s: Cat name %s is already in the database.\n", ADD, cName);
-            return 0;
-        }
-    }
-
+bool securityCheckCat(const class catClass* catToCheck){
     return 1; //true
 }
