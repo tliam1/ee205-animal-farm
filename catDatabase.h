@@ -21,7 +21,7 @@
 //class catClass* catDatabaseHeadPointer; CREATES MULTIPLE INSTANCES ERRORS IF CALLED HERE!!!!!!!!!!
 //int numberOfCats = 0; moved to database.c for now
 
-struct cat {
+struct cat { //@todo remove after refactoring
     char name [MAX_CAT_NAME];
     bool isFixed;
     catWeight weight;

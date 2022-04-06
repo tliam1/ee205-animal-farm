@@ -15,4 +15,4 @@
 #include <stdio.h>
 
 void deleteAllCats();
-
+void deleteCat(class catClass* targetCatForDeletion);
