@@ -19,6 +19,7 @@ char name [MAX_CATS][MAX_CAT_NAME];
 BreedType breeds[MAX_CATS];
 GenderType genders[MAX_CATS];
 */
+
 numCats numberOfCats;
 void initializeNumCats(){
     numberOfCats = 0;

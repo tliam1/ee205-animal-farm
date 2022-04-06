@@ -16,11 +16,8 @@
 #include <stdio.h>
 #include <string.h>
 #include "config.h"
-typedef float catWeight;
-typedef int numCats;
-typedef enum {UNKNOWN_GENDER, MALE, FEMALE} GenderType;
-typedef enum {UNKNOWN_BREED, MAINE_COON, MANX, SHORTHAIR, PERSIAN, SPHYNX} BreedType;
-typedef enum {BLACK, WHITE, RED, BLUE, GREEN, PINK} collarColor;
+#include "catClass.h"
+
 
 //int numberOfCats = 0; moved to database.c for now
 

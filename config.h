@@ -17,3 +17,8 @@
 #define ADD "addcats.c"
 #define REPORT "reportCats.c"
 
+typedef float catWeight;
+typedef int numCats;
+typedef enum {UNKNOWN_GENDER, MALE, FEMALE} GenderType;
+typedef enum {UNKNOWN_BREED, MAINE_COON, MANX, SHORTHAIR, PERSIAN, SPHYNX} BreedType;
+typedef enum {BLACK, WHITE, RED, BLUE, GREEN, PINK} collarColor;

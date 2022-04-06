@@ -27,9 +27,9 @@ int addCat(const char catName[], GenderType gender, BreedType breed, bool fixed,
    printf("License Number: %llu\n", licenseNum);
 #endif
 
-    if (securityCheckCat(catWeight, catName) == 0){
-        return 0; //0 = failed
-    }
+   // if (securityCheckCat(catWeight, catName) == 0){
+     //   return 0; //0 = failed
+    //}
 
     cats[numberOfCats].isFixed = fixed;
     strcpy(cats[numberOfCats].name, catName);

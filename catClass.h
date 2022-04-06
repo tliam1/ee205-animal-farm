@@ -11,7 +11,7 @@
 #pragma once
 #include "config.h"
 #include "catDatabase.h"
-
+#include "config.h"
 class catClass {
 public:
     catClass();
