@@ -23,19 +23,20 @@ catClass::catClass() {
 
 
 
-catClass::catClass(char *newName, GenderType newGender, BreedType newBreed, catWeight newWeight) : catClass() {
+catClass::catClass(const char *newName, GenderType newGender, BreedType newBreed, catWeight newWeight) : catClass() {
     //sets the name,gender,etc if the info is given
+    setCatName(catName);
     setGender(newGender);
     setWeight(newWeight);
     setBreed(newBreed);
-    setWeight(newWeight);
+    assert(dataValidation());
 }
 
 const char *catClass::getCatName() const {
     return catName;
 }
 void catClass::setCatName(char* newName){
-    //@todo validation
+    validateName(newName);
     memset(catName, 0, MAX_CAT_NAME);
     strcpy(catName, newName);
 }
@@ -77,26 +78,35 @@ catClass::~catClass() {
 bool catClass::validate() {
     if (validateName(catName) && validateWeight(weight) && validateBreed(breed) && validateGender(gender))
         return true; //all tests are good and the data is valid
-    return false; //nope tests failed, this cat aint good no more //@todo add printName message
+    return false; //nope tests failed, this cat aint good no more
 }
 bool catClass::validateName(const char newCatName[]) {
-    if (newCatName == nullptr || strlen(newCatName) <= 0 || strlen(newCatName) >= MAX_CAT_NAME)
+    if (newCatName == nullptr || strlen(newCatName) <= 0 || strlen(newCatName) >= MAX_CAT_NAME){
+        std::cout<< "validate name failed" << std::endl;
         return false; //@todo add printName message
+    }
+
     return true;
 }
 bool catClass::validateWeight(const catWeight newWeight) {
-    if (newWeight <= 0)
+    if (newWeight <= 0) {
+        std::cout<< "validate Weigh failed" << std::endl;
         return false;  //@todo add printName message
+    }
     return true;
 }
 bool catClass::validateBreed(const BreedType newBreed) {
-    if (newBreed == UNKNOWN_BREED)
+    if (newBreed == UNKNOWN_BREED) {
+        std::cout<< "validate breed failed" << std::endl;
         return false; //@todo add printName message
+    }
     return true;
 }
 bool catClass::validateGender(const GenderType newGender) {
-    if (newGender == UNKNOWN_GENDER)
+    if (newGender == UNKNOWN_GENDER) {
+        std::cout<< "validate gender failed" << std::endl;
         return false; //@todo add printName message
+    }
     return true;
 }
 

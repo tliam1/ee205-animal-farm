@@ -52,13 +52,13 @@ bool dataValidation(){
     for(catClass* cat = catDatabaseHeadPointer; cat != nullptr; cat = cat->next){
         //we want to make sure the cat has valid values
         if(!cat->validate()){
-            std::cout<<"invalid cat info" << std::endl;
+            std::cout<<"invalid cat info @data validation line 55" << std::endl;
             return false;
         }
         catClass* duplicateCat = findCat(cat->getCatName());
         if (duplicateCat != cat) //so if there is one already in the list
         {
-            std::cout<<"duplicate cat :C"<<std::endl;
+            std::cout<<"duplicate cat @data validation line 61 :C"<<std::endl;
             return false;
         }
         //check if the cat has a dup name

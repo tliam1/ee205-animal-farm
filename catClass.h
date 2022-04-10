@@ -16,7 +16,7 @@ class catClass {
 public:
     catClass();
 
-    catClass(char *newName, GenderType gender, BreedType newBreed, catWeight newWeight);
+    catClass(const char *newName, GenderType gender, BreedType newBreed, catWeight newWeight);
 
     const char *getCatName() const;
 
