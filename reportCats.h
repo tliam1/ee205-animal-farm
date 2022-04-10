@@ -10,11 +10,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 #pragma once
 
-#include <stdbool.h>
 #include "catDatabase.h"
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
 //#include "catClass.h"
 
 void printCat(unsigned long);

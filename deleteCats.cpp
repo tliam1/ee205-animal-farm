@@ -28,16 +28,20 @@ void deleteAllCats(){
     }
 
     catDatabaseHeadPointer = NULL;
+    std::cout << "deleted all cats" << std::endl;
+    return;
 }
 
 
 
 void deleteCat(class catClass* targetCatForDeletion){
-    if (targetCatForDeletion == nullptr){
+    /*if (targetCatForDeletion == nullptr){
         //there is no target
         std::cout << "No cat for deletion" << std::endl;
         return;
     }
+     */
+    assert(targetCatForDeletion != nullptr);
 
     if (targetCatForDeletion == catDatabaseHeadPointer){ //we need to readjust the head
         catDatabaseHeadPointer = catDatabaseHeadPointer->next;
@@ -45,16 +49,12 @@ void deleteCat(class catClass* targetCatForDeletion){
         //I looked at the source code...
         delete targetCatForDeletion;
         numberOfCats--;
-        if(!dataValidation()){
-            //@todo //end program because there are holes in linked list
-            return;
-        }
+
+        assert(dataValidation());
         return;
     }
-    if(!dataValidation()){
-        std::cout<< "our data is no longer good" << std::endl;
-        return;
-    }
+    assert(dataValidation());
+
     class catClass* cat = catDatabaseHeadPointer;
     while(cat != nullptr){
         if(cat->next == targetCatForDeletion){
@@ -63,10 +63,7 @@ void deleteCat(class catClass* targetCatForDeletion){
             delete targetCatForDeletion;
             numberOfCats--;
 
-            if(!dataValidation()){
-               //@todo //end program because there are issues in linked list
-               return;
-            }
+            assert(dataValidation());
             return;
         }
         cat=cat->next;//keep trucking along list

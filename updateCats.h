@@ -10,11 +10,8 @@
 ///////////////////////////////////////////////////////////////////////////////
 #pragma once
 #include "catDatabase.h"
-#include <string.h>
-#include <stdlib.h>
-#include <stdio.h>
 #include "config.h"
-
+// all should be used in cat class which kinda condenses, but everything remains related
 bool updateCatName(unsigned long index, const char newName[]);
 bool fixCat(unsigned long index);
 bool updateCatWeight(unsigned long index, catWeight newWeight);

@@ -15,7 +15,7 @@ extern struct cat cats[];
 extern numCats numberOfCats;
 extern class catClass* catDatabaseHeadPointer;
 
-void printCat(unsigned long index){
+/*void printCat(unsigned long index){
     if (strlen(cats[index].name)==0 || index < 0){
         fprintf(stdout, "%s: Bad cat [%lu]\n", REPORT, index);
     }else{
@@ -23,6 +23,8 @@ void printCat(unsigned long index){
     }
     return;
 }
+ */
+//@todo might want us to do this later, think about process
 
 void printAllCats(){
     if(!dataValidation()){

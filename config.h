@@ -15,6 +15,7 @@
 #define REMOVE "deletecats.c"
 #define UPDATE "updateCats.c"
 #define ADD "addcats.c"
+#define PROGRAM_TITLE "Animal Farm 2"
 #define REPORT "reportCats.c"
 
 typedef float catWeight;

@@ -16,14 +16,20 @@ extern struct cat cats[];
 extern numCats numberOfCats;
 //add a cat obj into database(linked list)
 bool addCat(class catClass* newCat){
-    if (newCat == nullptr){
+   /* if (newCat == nullptr){
         return false;
     }
+    */
+    assert(newCat != nullptr); //assert(); makes life easy and saves space!!!!
     newCat -> validate();
-    if (!dataValidation()){
+
+  /*  if (!dataValidation()){
         //end program cat is no good
         return false;
     }
+    */
+
+    assert(dataValidation());
 
 
     numberOfCats++; //if database is good, and newcat != null then cat is good
@@ -31,9 +37,11 @@ bool addCat(class catClass* newCat){
     newCat->next = catDatabaseHeadPointer; // assign the new nodes next position to the old head
     catDatabaseHeadPointer = newCat; //reassign the head pointer (reassign next pointer of old node first)
 
-    if (!dataValidation()){   //if the linked list isnt valid after adding the new cat, fail (something went terribly wrong)
+   /* if (!dataValidation()){   //if the linked list isnt valid after adding the new cat, fail (something went terribly wrong)
         //end program
         return false;
     }
+    */
+    assert(dataValidation()); //assert(dataValidation()); makes life easy and saves space!!!!
     return true;
 }

@@ -13,8 +13,8 @@
 #define MAX_CAT_NAME 50
 #define DEFAULT_WEIGHT -1
 #include <iostream>
-#include <stdio.h>
-#include <string.h>
+#include <cstring>
+#include <cassert>  // For assert()
 #include "config.h"
 #include "catClass.h"
 

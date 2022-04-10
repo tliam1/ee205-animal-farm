@@ -43,7 +43,7 @@ public:
     static bool validateGender(const GenderType newGender);
     static bool validateBreed(const BreedType newBreed);
     static bool validateWeight(const catWeight newWeight);
-
+    // @todo license number update + update collar color 1 & 2 // and assigning (this doesnt seem to be in spec, but should do it)
 
 private:
     char catName[MAX_CAT_NAME]; //name (empty at default)

@@ -10,9 +10,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 #pragma once
 #include "catDatabase.h"
-#include <string.h>
-#include <stdlib.h>
-#include <stdio.h>
+
 
 void deleteAllCats();
 void deleteCat(class catClass* targetCatForDeletion);
