@@ -11,7 +11,6 @@
 #include "reportCats.h"
 #define DEBUG
 
-extern struct cat cats[];
 extern numCats numberOfCats;
 extern class catClass* catDatabaseHeadPointer;
 
@@ -72,7 +71,7 @@ const char* collarColorName(const collarColor colorName){
 #ifdef DEBUG
     //removed debug as I removed the local variable
 #endif
-    return "/0";  //=null
+    //return "/0";  //=null
 }
 
 const char* catBreedName(const BreedType breedName){
@@ -91,7 +90,7 @@ const char* catBreedName(const BreedType breedName){
             return ("Sphynx");
         default: return "/0";
     }
-    return "/0";   //error
+    //return "/0";   //error
 }
 
 const char* catGenderName(const GenderType genderName){
@@ -104,5 +103,5 @@ const char* catGenderName(const GenderType genderName){
             return ("Female");
         default: return "/0";
     }
-    return "/0";
+    //return "/0";
 }
