@@ -26,10 +26,12 @@ extern class catClass* catDatabaseHeadPointer;
 //@todo might want us to do this later, think about process
 
 void printAllCats(){
-    if(!dataValidation()){
+   /* if(!dataValidation()){
         std::cout<< "our data is compromised" << std::endl;
         return;
     }
+    */
+    assert(dataValidation());
 
     //while the cat does not equal the null pointer, start from head and move down the list
     for(catClass* cat = catDatabaseHeadPointer; cat != nullptr; cat = cat->next){
