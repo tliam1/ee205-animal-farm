@@ -13,6 +13,7 @@
 
 extern struct cat cats[];
 extern numCats numberOfCats;
+extern class catClass* catDatabaseHeadPointer;
 
 void printCat(unsigned long index){
     if (strlen(cats[index].name)==0 || index < 0){
@@ -24,23 +25,30 @@ void printCat(unsigned long index){
 }
 
 void printAllCats(){
-    for(int i=0; i < MAX_CAT_NAME; i++){
-        if (strlen(cats[i].name) != 0)
-            printf("[%s] ", cats[i].name);
+    if(!dataValidation()){
+        std::cout<< "our data is compromised" << std::endl;
+        return;
     }
-    printf("\n");
-    return;
+
+    //while the cat does not equal the null pointer, start from head and move down the list
+    for(catClass* cat = catDatabaseHeadPointer; cat != nullptr; cat = cat->next){
+        cat->printName();
+    }
 }
 
 
-int findCat(const char catName[]){
-    for ( int i = 0; i < MAX_CATS; i++ )
-    {
-        if (strcmp( cats[i].name, catName ) == 0){
-            return i;
+catClass* findCat(const char catName[]){
+    if(!catClass().validateName(catName)){
+        return nullptr; //no cat with this name
+    }
+    for(catClass* cat = catDatabaseHeadPointer; cat != nullptr; cat = cat->next){
+        if(strcmp(catName, cat->getCatName()) == 0){
+            return cat; //we found our cat!!!
         }
     }
-    exit(0);
+
+    return nullptr; //no cat found
+
 }
 
 const char* collarColorName(const collarColor colorName){

@@ -17,11 +17,12 @@ extern numCats numberOfCats;
 //add a cat obj into database(linked list)
 bool addCat(class catClass* newCat){
     if (newCat == nullptr){
-        //end program
+        return false;
     }
     newCat -> validate();
     if (!dataValidation()){
-        //end program
+        //end program cat is no good
+        return false;
     }
 
 
@@ -32,6 +33,7 @@ bool addCat(class catClass* newCat){
 
     if (!dataValidation()){   //if the linked list isnt valid after adding the new cat, fail (something went terribly wrong)
         //end program
+        return false;
     }
     return true;
 }

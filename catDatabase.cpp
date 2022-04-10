@@ -19,6 +19,7 @@ void initializeDatabase(){
     //numberOfCats = 0;
     if (catDatabaseHeadPointer != nullptr){
         std::cout << "Database still exists (Should end program)" << std::endl;
+        return;
         //@todo end program
     }
 
@@ -41,7 +42,7 @@ bool securityCheckCat(const class catClass* catToCheck){
     }
 
     if (!dataValidation()) {//data is not valid
-        std::cout << "There is no cat here" << std::endl;
+        std::cout << "Invalid cat data" << std::endl;
         return false; //end program//@todo end program
     }
     return false; //we never found our cat :C//@todo end program

@@ -75,31 +75,33 @@ catClass::~catClass() {
 }
 
 bool catClass::validate() {
-    if (validateName() && validateWeight() && validateBreed() && validateGender())
+    if (validateName(catName) && validateWeight(weight) && validateBreed(breed) && validateGender(gender))
         return true; //all tests are good and the data is valid
-    return false; //nope tests failed, this cat aint good no more
+    return false; //nope tests failed, this cat aint good no more //@todo add printName message
 }
-bool catClass::validateName() {
-    if (catName == nullptr || strlen(catName) <= 0 || strlen(catName) >= MAX_CAT_NAME)
-        return false;
+bool catClass::validateName(const char newCatName[]) {
+    if (newCatName == nullptr || strlen(newCatName) <= 0 || strlen(newCatName) >= MAX_CAT_NAME)
+        return false; //@todo add printName message
     return true;
 }
-bool catClass::validateWeight() {
-    if (weight <= 0)
-        return false; //0 = false
+bool catClass::validateWeight(const catWeight newWeight) {
+    if (newWeight <= 0)
+        return false;  //@todo add printName message
     return true;
 }
-bool catClass::validateBreed() {
-    if (breed == UNKNOWN_BREED)
-        return false;
+bool catClass::validateBreed(const BreedType newBreed) {
+    if (newBreed == UNKNOWN_BREED)
+        return false; //@todo add printName message
     return true;
 }
-bool catClass::validateGender() {
-    if (gender == UNKNOWN_GENDER)
-        return false;
+bool catClass::validateGender(const GenderType newGender) {
+    if (newGender == UNKNOWN_GENDER)
+        return false; //@todo add printName message
     return true;
 }
 
-
+void catClass::printName() {
+    std::cout << catName << std::endl;
+}
 
 

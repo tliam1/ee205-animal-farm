@@ -15,11 +15,11 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include "config.h"
+//#include "catClass.h"
 
 void printCat(unsigned long);
 void printAllCats();
-int findCat(const char catName[]);
+catClass* findCat(const char catName[]);
 const char* collarColorName(const collarColor colorName);
 const char* catBreedName(const BreedType breedName);
 const char* catGenderName(const GenderType genderName);

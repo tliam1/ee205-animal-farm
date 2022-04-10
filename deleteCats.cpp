@@ -12,20 +12,30 @@
 extern struct cat cats[];
 extern numCats numberOfCats;
 extern class catClass* catDatabaseHeadPointer;
+
+
 void deleteAllCats(){
-    for (int i = 0; i < MAX_CATS; i++){
-        cats[i].isFixed = false;
-        cats[i].weight = 0;
-        memset(cats[i].name,0,strlen(cats[i].name));
+    catClass* current = catDatabaseHeadPointer;
+    catClass* next = NULL;
+
+    while (current != NULL)
+    {
+        //moves down list deleting things one at a time
+        //current starts at head then moves to its pointers next (assigned not next before current gets deleted and lost)
+        next = current->next;
+        delete(current);
+        current = next;
     }
-    numberOfCats=0;
-    //strcpy(name[i], "");
-    //memset(name,0,strlen(name));
+
+    catDatabaseHeadPointer = NULL;
 }
+
+
 
 void deleteCat(class catClass* targetCatForDeletion){
     if (targetCatForDeletion == nullptr){
-        //@todo //end program because there are holes in linked list
+        //there is no target
+        std::cout << "No cat for deletion" << std::endl;
         return;
     }
 
@@ -43,6 +53,7 @@ void deleteCat(class catClass* targetCatForDeletion){
     }
     if(!dataValidation()){
         std::cout<< "our data is no longer good" << std::endl;
+        return;
     }
     class catClass* cat = catDatabaseHeadPointer;
     while(cat != nullptr){
@@ -53,7 +64,7 @@ void deleteCat(class catClass* targetCatForDeletion){
             numberOfCats--;
 
             if(!dataValidation()){
-               //@todo //end program because there are holes in linked list
+               //@todo //end program because there are issues in linked list
                return;
             }
             return;
@@ -61,6 +72,6 @@ void deleteCat(class catClass* targetCatForDeletion){
         cat=cat->next;//keep trucking along list
     }
 
-
+    return; //make this an error
     //@todo fail program, there is no cat in the database
 }

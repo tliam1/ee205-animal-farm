@@ -36,13 +36,14 @@ public:
 
     virtual ~catClass();
 
-    void print();
+    void printName();
 
     bool validate();
-    bool validateName();
-    bool validateGender();
-    bool validateBreed();
-    bool validateWeight();
+    static bool validateName(const char newCatName[]);
+    static bool validateGender(const GenderType newGender);
+    static bool validateBreed(const BreedType newBreed);
+    static bool validateWeight(const catWeight newWeight);
+
 
 private:
     char catName[MAX_CAT_NAME]; //name (empty at default)
