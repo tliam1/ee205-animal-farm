@@ -17,23 +17,23 @@ class catClass* catDatabaseHeadPointer;
 numCats numberOfCats = 0;
 void initializeDatabase(){
     //numberOfCats = 0;
-    if (catDatabaseHeadPointer != nullptr){
-        std::cout << "Database still exists (Should end program)" << std::endl;
-        return;
-        //@todo end program
-    }
-
+    assert(catDatabaseHeadPointer != nullptr);
+    assert(dataValidation());
 }
 
 bool securityCheckCat(const class catClass* catToCheck){
-    if (catToCheck == nullptr){
+   /* if (catToCheck == nullptr){
         std::cout << "There is no cat here..." << std::endl;
-        return false;//end program//@todo end program
+        return false;//end program//
     }
-    if (!dataValidation()) {//data is not valid
+    */
+    assert(catToCheck != nullptr);
+   /* if (!dataValidation()) {//data is not valid
         std::cout << "There is no cat here" << std::endl;
-        return false;//end program//@todo end program
+        return false;//end program//
     }
+    */
+    assert(dataValidation());
     //while the cat does not equal the null pointer, start from head and move down the list
     for(catClass* cat = catDatabaseHeadPointer; cat != nullptr; cat = cat->next){
         if(cat == catToCheck){
@@ -41,11 +41,8 @@ bool securityCheckCat(const class catClass* catToCheck){
         }
     }
 
-    if (!dataValidation()) {//data is not valid
-        std::cout << "Invalid cat data" << std::endl;
-        return false; //end program//@todo end program
-    }
-    return false; //we never found our cat :C//@todo end program
+    assert(dataValidation());
+    return false; //we never found our cat :C
 }
 
 bool dataValidation(){
@@ -53,15 +50,26 @@ bool dataValidation(){
     int validatedCats = 0;
     //while the cat does not equal the null pointer, start from head and move down the list
     for(catClass* cat = catDatabaseHeadPointer; cat != nullptr; cat = cat->next){
-        //we want to validate the cat (using class validate function)
+        //we want to make sure the cat has valid values
+        if(!cat->validate()){
+            std::cout<<"invalid cat info" << std::endl;
+            return false;
+        }
+        catClass* duplicateCat = findCat(cat->getCatName());
+        if (duplicateCat != cat) //so if there is one already in the list
+        {
+            std::cout<<"duplicate cat :C"<<std::endl;
+            return false;
+        }
         //check if the cat has a dup name
-        //@todo missing validation and dup function call
         validatedCats++;
     }
 
     //if number of cats is  not equal to the number of validated cats then return false
-    if (numberOfCats != validatedCats)
-        return false; //@todo end program
-    //else return true
+    /*if (numberOfCats != validatedCats)
+        return false;
+        */
+    assert(numberOfCats == validatedCats);
+    //else return true / good data
     return true;
 }

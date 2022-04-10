@@ -17,6 +17,7 @@
 #include <cassert>  // For assert()
 #include "config.h"
 #include "catClass.h"
+#include "reportCats.h"
 
 //class catClass* catDatabaseHeadPointer; CREATES MULTIPLE INSTANCES ERRORS IF CALLED HERE!!!!!!!!!!
 //int numberOfCats = 0; moved to database.c for now
