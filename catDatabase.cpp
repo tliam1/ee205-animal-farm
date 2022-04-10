@@ -12,12 +12,12 @@
 #include "catDatabase.h"
 
 struct cat cats [MAX_CATS];
-class catClass* catDatabaseHeadPointer;
+class catClass* catDatabaseHeadPointer = nullptr;
 
 numCats numberOfCats = 0;
 void initializeDatabase(){
     //numberOfCats = 0;
-    assert(catDatabaseHeadPointer != nullptr);
+    assert(catDatabaseHeadPointer == nullptr);
     assert(dataValidation());
 }
 

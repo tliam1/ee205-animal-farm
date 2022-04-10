@@ -11,17 +11,19 @@
 
 
 #include <iostream>
-#include <stdbool.h>
+#include <cassert>
 #include "catDatabase.h"
 #include "addCat.h"
 #include "reportCats.h"
 #include "deleteCats.h"
 #include "config.h"
-#include <cassert>
-extern struct cat cats[];
+
+using namespace std;
+
 extern int numberOfCats;
 
 int main(){
-
+    cout << "Starting " << PROGRAM_TITLE << endl ;
+    initializeDatabase();
 }
 
