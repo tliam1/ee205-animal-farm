@@ -39,7 +39,6 @@ void printAllCats(){
     }
 }
 
-
 class catClass* findCat(const char catName[]){
     if(!catClass().validateName(catName)){
         return nullptr; //no cat with this name

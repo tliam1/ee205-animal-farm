@@ -36,7 +36,7 @@ const char *catClass::getCatName() const {
     return catName;
 }
 void catClass::setCatName(const char* newName){
-    validateName(newName);
+    assert(validateName(newName));
     memset(catName, 0, MAX_CAT_NAME);
     strcpy(catName, newName);
     std::cout<<"Cat name is: " << catName << std::endl;
@@ -47,6 +47,7 @@ GenderType catClass::getGender() const {
 }
 
 void catClass::setGender(GenderType newGender) {
+    assert(validateGender(newGender));
     catClass::gender = newGender;
 }
 
@@ -55,6 +56,7 @@ BreedType catClass::getBreed() const {
 }
 
 void catClass::setBreed(BreedType newBreed) {
+    assert(validateBreed(newBreed));
     catClass::breed = newBreed;
 }
 
@@ -63,7 +65,8 @@ catWeight catClass::getWeight() const {
 }
 
 void catClass::setWeight(catWeight newWeight) {
-    catClass::weight = newWeight; //@todo validation
+    assert(validateWeight(newWeight));
+    catClass::weight = newWeight;
 }
 
 catClass::~catClass() {
@@ -79,15 +82,16 @@ catClass::~catClass() {
 bool catClass::validate() {
     if (validateName(catName) && validateWeight(weight) && validateBreed(breed) && validateGender(gender))
         return true; //all tests are good and the data is valid
-    return false; //nope tests failed, this cat aint good no more
+
+    std::cout<<"Invalid Name"<<std::endl;
+    assert(false);
 }
 bool catClass::validateName(const char newCatName[]) {
     if (newCatName == nullptr || strlen(newCatName) <= 0 || strlen(newCatName) >= MAX_CAT_NAME){
         std::cout<< "validate name failed" << std::endl;
         return false;
     }
-
-    return true;
+        return true;
 }
 bool catClass::validateWeight(const catWeight newWeight) {
     if (newWeight <= 0) {
