@@ -25,9 +25,11 @@ void deleteAllCats(){
         next = current->next;
         delete(current);
         current = next;
+
     }
 
     catDatabaseHeadPointer = NULL;
+    numberOfCats = 0; //forgot this
     std::cout << "deleted all cats" << std::endl;
     return;
 }

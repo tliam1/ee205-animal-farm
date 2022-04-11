@@ -20,7 +20,7 @@ public:
 
     const char *getCatName() const;
 
-    void setCatName(char* newName);
+    void setCatName(const char* newName);
 
     GenderType getGender() const;
 

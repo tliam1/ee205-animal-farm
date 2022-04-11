@@ -25,7 +25,7 @@ catClass::catClass() {
 
 catClass::catClass(const char *newName, GenderType newGender, BreedType newBreed, catWeight newWeight) : catClass() {
     //sets the name,gender,etc if the info is given
-    setCatName(catName);
+    setCatName(newName);
     setGender(newGender);
     setWeight(newWeight);
     setBreed(newBreed);
@@ -35,10 +35,11 @@ catClass::catClass(const char *newName, GenderType newGender, BreedType newBreed
 const char *catClass::getCatName() const {
     return catName;
 }
-void catClass::setCatName(char* newName){
+void catClass::setCatName(const char* newName){
     validateName(newName);
     memset(catName, 0, MAX_CAT_NAME);
     strcpy(catName, newName);
+    std::cout<<"Cat name is: " << catName << std::endl;
 }
 
 GenderType catClass::getGender() const {
@@ -83,7 +84,7 @@ bool catClass::validate() {
 bool catClass::validateName(const char newCatName[]) {
     if (newCatName == nullptr || strlen(newCatName) <= 0 || strlen(newCatName) >= MAX_CAT_NAME){
         std::cout<< "validate name failed" << std::endl;
-        return false; //@todo add printName message
+        return false;
     }
 
     return true;
@@ -91,21 +92,21 @@ bool catClass::validateName(const char newCatName[]) {
 bool catClass::validateWeight(const catWeight newWeight) {
     if (newWeight <= 0) {
         std::cout<< "validate Weigh failed" << std::endl;
-        return false;  //@todo add printName message
+        return false;
     }
     return true;
 }
 bool catClass::validateBreed(const BreedType newBreed) {
     if (newBreed == UNKNOWN_BREED) {
         std::cout<< "validate breed failed" << std::endl;
-        return false; //@todo add printName message
+        return false;
     }
     return true;
 }
 bool catClass::validateGender(const GenderType newGender) {
     if (newGender == UNKNOWN_GENDER) {
         std::cout<< "validate gender failed" << std::endl;
-        return false; //@todo add printName message
+        return false;
     }
     return true;
 }
