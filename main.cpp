@@ -20,7 +20,13 @@
 #include "reportCats.h"
 #include "deleteCats.h"
 #include "config.h"
+#define DEBUG
+/// @internal Used to test the largest possible name
+#define MAX_NAME1    "1234567890123456789012345678901234567890123456789"
 
+/// @internal Used to test an illegal name (because it's too large by
+///           one character)
+#define ILLEGAL_NAME "12345678901234567890123456789012345678901234567890"
 
 //copied for testing purposes
 using namespace std;
@@ -45,7 +51,17 @@ int main(){
     assert( result ) ;
     result = addCat( new catClass( "Chili", MALE, SHORTHAIR, 1.5 )) ;
     assert( result ) ;
+    result = addCat( new catClass( "Garfield", MALE, SHORTHAIR, 200000 )) ;
+    assert( result ) ;
 
+#ifdef DEBUG
+    result = addCat( new catClass( MAX_NAME1, MALE, SHORTHAIR, 1.5 )) ;//works
+    assert(result);
+    result = addCat( new catClass( "JOHN", MALE, SHORTHAIR, -1)) ; //no worky
+    assert(result);
+    result = addCat( new catClass( ILLEGAL_NAME, MALE, SHORTHAIR, 1.5 )) ; //no worky
+    assert(result);
+#endif
 
     printAllCats() ;
 
