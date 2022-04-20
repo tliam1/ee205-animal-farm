@@ -10,13 +10,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 #pragma once
 
-#ifndef EE205_LAB_08D_ANIMAL_FARM_1_TO_CLIO_WEIGHT_H
-#define EE205_LAB_08D_ANIMAL_FARM_1_TO_CLIO_WEIGHT_H
-
-
 class Weight {
 
 };
 
-
-#endif //EE205_LAB_08D_ANIMAL_FARM_1_TO_CLIO_WEIGHT_H
