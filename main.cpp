@@ -20,7 +20,7 @@
 #include "reportCats.h"
 #include "deleteCats.h"
 #include "config.h"
-#define DEBUG
+//#define DEBUG
 /// @internal Used to test the largest possible name
 #define MAX_NAME1    "1234567890123456789012345678901234567890123456789"
 
@@ -40,7 +40,7 @@ int main(){
     bool result ;
     result = addCat( new catClass( "Loki", MALE, PERSIAN, 1.0 )) ;
     assert( result ) ;
-    if( !result ) throw logic_error (PROGRAM_TITLE ": addCat() failed" ) ;
+    //if( !result ) throw logic_error (PROGRAM_TITLE ": addCat() failed" ) ;
     result = addCat( new catClass( "Milo", MALE, MANX , 1.1 )) ;
     assert( result ) ;
     result = addCat( new catClass( "Bella", FEMALE, MAINE_COON, 1.2 )) ;

@@ -18,22 +18,9 @@
 #include "config.h"
 #include "catClass.h"
 #include "reportCats.h"
-
+using namespace std;
 //class catClass* catDatabaseHeadPointer; CREATES MULTIPLE INSTANCES ERRORS IF CALLED HERE!!!!!!!!!!
 //int numberOfCats = 0; moved to database.c for now
-
-struct cat { //@todo remove after refactoring
-    char name [MAX_CAT_NAME];
-    bool isFixed;
-    catWeight weight;
-    unsigned long long license;
-
-    BreedType breeds;
-    GenderType genders;
-    collarColor collarColor1;
-    collarColor collarColor2;
-};
-
 
 void initializeDatabase();
 bool securityCheckCat(const class catClass* catToCheck);

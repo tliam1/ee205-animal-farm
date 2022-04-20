@@ -12,10 +12,10 @@
 
 #include "catDatabase.h"
 //#include "catClass.h"
-
+using namespace std;
 void printCat(unsigned long);
 void printAllCats();
-class catClass* findCat(const char catName[]);
+class catClass* findCat(const string catName);
 const char* collarColorName(const collarColor colorName);
 const char* catBreedName(const BreedType breedName);
 const char* catGenderName(const GenderType genderName);

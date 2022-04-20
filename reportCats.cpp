@@ -39,12 +39,12 @@ void printAllCats(){
     }
 }
 
-class catClass* findCat(const char catName[]){
+class catClass* findCat(const string catName){
     if(!catClass().validateName(catName)){
         return nullptr; //no cat with this name
     }
     for(catClass* cat = catDatabaseHeadPointer; cat != nullptr; cat = cat->next){
-        if(strcmp(catName, cat->getCatName()) == 0){
+        if(catName == cat->getCatName()){
             return cat; //we found our cat!!!
         }
     }

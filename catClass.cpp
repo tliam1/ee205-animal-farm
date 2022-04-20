@@ -13,7 +13,9 @@
 
 catClass::catClass() {
     //will initialize data to null / defaults
-    memset( catName, 0, MAX_CAT_NAME );
+    //memset( catName, 0, MAX_CAT_NAME );
+    //reset canName string to nothing
+    catName.empty();
     isFixed = false;
     weight =  DEFAULT_WEIGHT;
     breed = UNKNOWN_BREED;
@@ -23,7 +25,7 @@ catClass::catClass() {
 
 
 
-catClass::catClass(const char *newName, GenderType newGender, BreedType newBreed, catWeight newWeight) : catClass() {
+catClass::catClass(const string newName, GenderType newGender, BreedType newBreed, catWeight newWeight) : catClass() {
     //sets the name,gender,etc if the info is given
     setCatName(newName);
     setGender(newGender);
@@ -32,13 +34,15 @@ catClass::catClass(const char *newName, GenderType newGender, BreedType newBreed
     assert(dataValidation());
 }
 
-const char *catClass::getCatName() const {
+string catClass::getCatName() const {
     return catName;
 }
-void catClass::setCatName(const char* newName){
+void catClass::setCatName(const string newName){
     assert(validateName(newName));
-    memset(catName, 0, MAX_CAT_NAME);
-    strcpy(catName, newName);
+    // memset(catName, 0, MAX_CAT_NAME);
+    catName.empty();
+    catName = newName;
+    //strcpy(catName, newName);
     std::cout<<"Cat name is: " << catName << std::endl;
 }
 
@@ -71,7 +75,8 @@ void catClass::setWeight(catWeight newWeight) {
 
 catClass::~catClass() {
     //sets things to null/defaults before deletion
-    memset( catName, 0, MAX_CAT_NAME );
+    //memset( catName, 0, MAX_CAT_NAME );
+    catName.empty();
     isFixed = false;
     weight =  DEFAULT_WEIGHT;
     breed = UNKNOWN_BREED;
@@ -86,8 +91,8 @@ bool catClass::validate() {
     std::cout<<"Invalid Name"<<std::endl;
     assert(false);
 }
-bool catClass::validateName(const char newCatName[]) {
-    if (newCatName == nullptr || strlen(newCatName) <= 0 || strlen(newCatName) >= MAX_CAT_NAME){
+bool catClass::validateName(const string newCatName) {
+    if (newCatName.empty() || newCatName.length() <= 0 || newCatName.length() >= MAX_CAT_NAME){
         std::cout<< "validate name failed" << std::endl;
         return false;
     }

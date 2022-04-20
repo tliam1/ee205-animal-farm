@@ -12,15 +12,16 @@
 #include "config.h"
 #include "catDatabase.h"
 #include "config.h"
+using  namespace std;
 class catClass {
 public:
     catClass();
 
-    catClass(const char *newName, GenderType gender, BreedType newBreed, catWeight newWeight);
+    catClass(const string newName, GenderType gender, BreedType newBreed, catWeight newWeight);
 
-    const char *getCatName() const;
+    string getCatName() const;
 
-    void setCatName(const char* newName);
+    void setCatName(const string newName);
 
     GenderType getGender() const;
 
@@ -39,14 +40,14 @@ public:
     void printName();
 
     bool validate();
-    static bool validateName(const char newCatName[]);
+    static bool validateName(const string newCatName);
     static bool validateGender(const GenderType newGender);
     static bool validateBreed(const BreedType newBreed);
     static bool validateWeight(const catWeight newWeight);
     // @todo license number update + update collar color 1 & 2 // and assigning (this doesnt seem to be in spec, but should do it)
 
 private:
-    char catName[MAX_CAT_NAME]; //name (empty at default)
+    string catName; //name (empty at default)
     GenderType gender; //gender (unknown at default)
     BreedType breed; // breed (Unknown at default)
     bool isFixed; // false at default

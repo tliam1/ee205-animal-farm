@@ -15,7 +15,7 @@ extern numCats numberOfCats;
 
 bool updateCatName(unsigned long index, const char newName[]){
 
-    if (strlen(newName) > MAX_CAT_NAME)
+  /*  if (strlen(newName) > MAX_CAT_NAME)
         return 0;
     else if (strlen(newName) == 0)
         return 0;
@@ -30,6 +30,7 @@ bool updateCatName(unsigned long index, const char newName[]){
         return 0; //false
 
     strcpy(cats[index].name, newName);
+    */
     return 1; //true
 }
 
@@ -37,7 +38,7 @@ bool fixCat(unsigned long index){
     if (index < 0 && index > numberOfCats)
         return 0;
 
-    cats[index].isFixed = true;
+   // cats[index].isFixed = true;
     return 1;
 }
 
@@ -46,18 +47,18 @@ bool updateCatWeight(unsigned long index, catWeight newWeight){
     if (newWeight <= 0)
         return 0;
 
-    cats[index].weight = newWeight;
+    //cats[index].weight = newWeight;
     return 1;
 }
 
 void updateCatCollar1(unsigned long index, collarColor newCollarCol){
-    cats[index].collarColor1 = newCollarCol;
+    //cats[index].collarColor1 = newCollarCol;
 }
 
 void updateCatCollar2(unsigned long index, collarColor newCollarCol){
-    cats[index].collarColor2 = newCollarCol;
+   // cats[index].collarColor2 = newCollarCol;
 }
 
 void updateLicense(unsigned long index, unsigned long long newLicense){
-    cats[index].license = newLicense;
+    //cats[index].license = newLicense;
 }
