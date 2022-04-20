@@ -24,10 +24,13 @@ public:
     virtual bool operator>(const Node &rightSide);
 
 protected:
+    friend class List;
     static bool compareByAddress(const Node* node1, const Node* node2);
     Node* next = nullptr;
     //These are not created Yet, so we aren't implementing it at the moment
     //should be protected members
-    // friend class List;
+
     // friend class SinglyLinkedList;
 };
+
+

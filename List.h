@@ -10,10 +10,25 @@
 ///////////////////////////////////////////////////////////////////////////////
 #pragma once
 
+class Node;
 
+class List{
+public:
+    bool empty() const noexcept;
+    unsigned int size() const noexcept;
+    bool isIn(Node *aNode) const;
+    bool isSorted () const noexcept;
+    Node* get_first () const noexcept;
+    void deleteAllNodes() noexcept;
+    virtual Node* pop_front() noexcept=0; //this is to be overridden in child class(es)
+    virtual void dump() const noexcept=0;
+    virtual bool validate() const noexcept=0;
 
-class List {
+    static Node* get_next (const Node *currentNode);
 
+protected:
+    Node* head = nullptr;
+    unsigned int nodeCount = 0;
 };
 
 
