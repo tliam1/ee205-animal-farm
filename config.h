@@ -9,21 +9,23 @@
 /// @date   18_Mar_2022
 ///////////////////////////////////////////////////////////////////////////////
 #pragma once
+using namespace std;
+
 #define PROGRAM_TITLE "Animal Farm 2"
 /// Print =====================
 #define PRINT_HEADING_FOR_DUMP \
  /* Print =========================================================== */ \
- std::cout << std::setw(80) << std::setfill( '=' ) << "" << std::endl
+ cout << setw(80) << setfill( '=' ) << "" << endl
 
 /// Format a line for dumping the members of a class to the console.
 /// Setup the fields for printing (space pad, left justify, etc.)
 #define FORMAT_LINE_FOR_DUMP( className, member ) \
- std::cout << std::setfill( ' ' ) /* Space pad */ \
- << std::left /* Left justify */ \
- << std::boolalpha /* Print `true` or `false` for `bool`s */ \
- << std::setw(8) << (className) \
- << std::setw(20) << (member) \
- << std::setw(52) /* (data) */
+ cout << setfill( ' ' ) /* Space pad */ \
+ << left /* Left justify */ \
+ << boolalpha /* Print `true` or `false` for `bool`s */ \
+ << setw(8) << (className) \
+ << setw(20) << (member) \
+ << setw(52) /* (data) */
 
 
 typedef float catWeight;

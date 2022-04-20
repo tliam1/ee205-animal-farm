@@ -8,6 +8,29 @@
 /// @author Liam Tapper <tliam@hawaii.edu>
 /// @date   19_Apr_2022
 ///////////////////////////////////////////////////////////////////////////////
-#pragma once
-
 #include "Node.h"
+
+void Node::dump() const {
+PRINT_HEADING_FOR_DUMP;
+FORMAT_LINE_FOR_DUMP(this, this->next);
+}
+
+bool Node::validate() const noexcept {
+    if(next != this) {
+        return false;
+        //supposed to do recursion, but I dont see why we would need to do that
+        //@todo wait till he releases recursion slides to review + implement
+    }
+    return true;
+}
+
+bool Node::operator>(const Node &rightSide) {
+    return this > &rightSide;
+}
+
+bool Node::compareByAddress(const Node *node1, const Node *node2) {
+    if(node1 > node2){
+        return true; //compares memory addresses for some use not yet known to me
+    }
+    return false;
+}

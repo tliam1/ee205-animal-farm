@@ -9,8 +9,25 @@
 /// @date   19_Apr_2022
 ///////////////////////////////////////////////////////////////////////////////
 #pragma once
+#include "config.h"
+#include <iostream>
+#include <cstring>
+#include <cassert>  // For assert()
+#include <iomanip>
 
+using namespace std;
 
 class Node {
+public:
+    virtual void dump() const;
+    virtual bool validate() const noexcept;
+    virtual bool operator>(const Node &rightSide);
 
+protected:
+    static bool compareByAddress(const Node* node1, const Node* node2);
+    Node* next = nullptr;
+    //These are not created Yet, so we aren't implementing it at the moment
+    //should be protected members
+    // friend class List;
+    // friend class SinglyLinkedList;
 };
