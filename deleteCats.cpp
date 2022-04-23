@@ -16,9 +16,9 @@ extern class catClass* catDatabaseHeadPointer;
 
 void deleteAllCats(){
     catClass* current = catDatabaseHeadPointer;
-    catClass* next = NULL;
+    catClass* next = nullptr;
 
-    while (current != NULL)
+    while (current != nullptr)
     {
         //moves down list deleting things one at a time
         //current starts at head then moves to its pointers next (assigned not next before current gets deleted and lost)
@@ -28,7 +28,7 @@ void deleteAllCats(){
 
     }
 
-    catDatabaseHeadPointer = NULL;
+    catDatabaseHeadPointer = nullptr;
     numberOfCats = 0; //forgot this
     std::cout << "deleted all cats" << std::endl;
     return;
@@ -70,7 +70,6 @@ void deleteCat(class catClass* targetCatForDeletion){
         }
         cat=cat->next;//keep trucking along list
     }
-
+    cout << "Nothing In Database" << endl;
     return; //make this an error
-    //@todo fail program, there is no cat in the database
 }

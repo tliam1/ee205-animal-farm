@@ -10,8 +10,8 @@
 ///////////////////////////////////////////////////////////////////////////////
 #pragma once
 
-class Node;
-
+//class Node;
+#include "Node.h"
 class List{
 public:
     bool empty() const noexcept;
@@ -20,6 +20,8 @@ public:
     bool isSorted () const noexcept;
     Node* get_first () const noexcept;
     void deleteAllNodes() noexcept;
+
+    //@todo Implement in singlyLinked list (all virtual functions down below)
     virtual Node* pop_front() noexcept=0; //this is to be overridden in child class(es)
     virtual void dump() const noexcept=0;
     virtual bool validate() const noexcept=0;
@@ -27,7 +29,7 @@ public:
     static Node* get_next (const Node *currentNode);
 
 protected:
-    Node* head = nullptr;
+    Node* headPointer = nullptr;
     unsigned int nodeCount = 0;
 };
 
