@@ -25,12 +25,10 @@ public:
 
 protected:
     friend class List;
+    friend class SinglyLinkedList;
     static bool compareByAddress(const Node* node1, const Node* node2);
     Node* next = nullptr;
-    //These are not created Yet, so we aren't implementing it at the moment
-    //should be protected members
 
-    // friend class SinglyLinkedList;
 };
 
 

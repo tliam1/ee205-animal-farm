@@ -18,8 +18,6 @@ FORMAT_LINE_FOR_DUMP(this, this->next);
 bool Node::validate() const noexcept {
     if(next != this) {
         return false;
-        //supposed to do recursion, but I dont see why we would need to do that
-        //@todo wait till he releases recursion slides to review + implement
     }
     return true;
 }
