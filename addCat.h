@@ -15,7 +15,7 @@
 #include <string.h>
 #include "config.h"
 #include "catClass.h"
-//int addCat(char name[], GenderType gender[], BreedType breed[], bool isFixed[], float weight[]);
+//int addCat(char name[], GenderType gender[], BreedType breed[], bool isFixed[], float animalWeight[]);
 //add a new cat class OBJ
 bool addCat(class catClass* newCat); //no longer returning num cats, can be used to check things instead
 

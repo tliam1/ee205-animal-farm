@@ -17,7 +17,7 @@ const string Weight::POUND_LABEL = "Pound";
 const string Weight::KILO_LABEL = "Kilo";
 const string Weight::SLUG_LABEL = "Slug";
 float Weight::globalWeight = 0;
-float Weight::weight = UNKNOWN_WEIGHT; //do I need to convert max weight??
+float Weight::weight = UNKNOWN_WEIGHT; //do I need to convert max animalWeight??
 //initializing constants end
 
 Weight::Weight() noexcept {
@@ -106,7 +106,7 @@ float Weight::fromPoundToSlug(float pound) noexcept {
 }
 
 float Weight::convertWeight(float fromWeight, Weight::UnitOfWeight fromUnit, Weight::UnitOfWeight toUnit) noexcept {
-    //we need to do validation first (weight > 0 and < max weight)
+    //we need to do validation first (animalWeight > 0 and < max animalWeight)
     switch (fromUnit) {
         case POUND:
             fromWeight = fromWeight; //no conversion (default is lbs)
@@ -129,7 +129,7 @@ float Weight::convertWeight(float fromWeight, Weight::UnitOfWeight fromUnit, Wei
         case POUND:
             weight = weight;
 #ifdef DEBUG
-            cout << weight << endl;
+            cout << animalWeight << endl;
 #endif
             unitOfWeight = POUND;
             break;
@@ -144,7 +144,7 @@ float Weight::convertWeight(float fromWeight, Weight::UnitOfWeight fromUnit, Wei
             maxWeight = fromPoundToSlug(maxWeight);
             unitOfWeight = SLUG;
 #ifdef DEBUG
-            cout << weight << endl;
+            cout << animalWeight << endl;
 #endif
             break;
         default:
@@ -165,14 +165,14 @@ float Weight::getMaxWeight() const noexcept{
 bool Weight::validate(float weightToValidate) const noexcept {
     if (isWeightValid(weightToValidate) && getMaxWeight() > 0 && weightIsKnown)
         return true;
-    cout << "Missing weight condition"<<endl;
+    cout << "Missing animalWeight condition"<<endl;
     return false;
 }
 
 bool Weight::isWeightValid(float checkWeight) const {
     if(checkWeight > 0 && (checkWeight <= maxWeight || !hasMaxWeight))
         return true;
-    cout << "Missing weight condition"<<endl;
+    cout << "Missing animalWeight condition"<<endl;
     return false;
 }
 
@@ -203,7 +203,7 @@ void Weight::dump() const {
     cout << "==============================================" << endl;
     cout << "Weight\t" << "this\t" << this << endl;
     cout << boolalpha <<"Weight\t" << "isKnown\t" << weightIsKnown << endl;
-    cout << "Weight\t" << "weight\t" << weight << endl;
+    cout << "Weight\t" << "animalWeight\t" << weight << endl;
     switch (unitOfWeight) {
         case 0:
             cout << "Weight\t" << "unitOfWeight\t" << POUND_LABEL << endl;

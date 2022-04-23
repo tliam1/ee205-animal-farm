@@ -30,9 +30,11 @@ using namespace std;
 
 typedef float catWeight;
 typedef int numCats;
-typedef enum {UNKNOWN_GENDER, MALE, FEMALE} GenderType; //@todo create a enum class
+typedef enum {UNKNOWN_GENDER, MALE, FEMALE} GenderType;
 typedef enum {UNKNOWN_BREED, MAINE_COON, MANX, SHORTHAIR, PERSIAN, SPHYNX} BreedType;
 typedef enum {BLACK, WHITE, RED, BLUE, GREEN, PINK} collarColor;
+
+//@todo create a enum class (LAST THEY ARENT WORKING RIGHT)
 
 enum class Color{
    UNKNOWN_COLOR,

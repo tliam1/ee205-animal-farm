@@ -47,7 +47,7 @@ bool updateCatWeight(unsigned long index, catWeight newWeight){
     if (newWeight <= 0)
         return 0;
 
-    //cats[index].weight = newWeight;
+    //cats[index].animalWeight = newWeight;
     return 1;
 }
 

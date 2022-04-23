@@ -25,6 +25,8 @@ public:
     static const string SLUG_LABEL;
     static float globalWeight; //remove later
     static float weight; //can change once set
+    friend class Animal;
+
 
 private:
     bool weightIsKnown = false;

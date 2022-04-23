@@ -18,7 +18,7 @@ extern class catClass* catDatabaseHeadPointer;
     if (strlen(cats[index].name)==0 || index < 0){
         fprintf(stdout, "%s: Bad cat [%lu]\n", REPORT, index);
     }else{
-        printf("cat index = [%lu] name = [%s], gender=[%s], breed=[%s], isFixed[%d], weight=[%f], collarColor1=[%s], collarColor2=[%s], license=[%llu]\n", index, cats[index].name, catGenderName(cats[index].genders), catBreedName(cats[index].breeds), cats[index].isFixed, cats[index].weight, collarColorName(cats[index].collarColor1), collarColorName(cats[index].collarColor2), cats[index].license);
+        printf("cat index = [%lu] name = [%s], gender=[%s], breed=[%s], isFixed[%d], animalWeight=[%f], collarColor1=[%s], collarColor2=[%s], license=[%llu]\n", index, cats[index].name, catGenderName(cats[index].genders), catBreedName(cats[index].breeds), cats[index].isFixed, cats[index].animalWeight, collarColorName(cats[index].collarColor1), collarColorName(cats[index].collarColor2), cats[index].license);
     }
     return;
 }
@@ -96,11 +96,11 @@ const char* catBreedName(const BreedType breedName){
 
 const char* catGenderName(const GenderType genderName){
     switch(genderName){
-        case UNKNOWN_GENDER:
+        case GenderType::UNKNOWN_GENDER:
             return ("Unknown Breed");
-        case MALE:
+        case GenderType::MALE:
             return ("Male");
-        case FEMALE:
+        case GenderType::FEMALE:
             return ("Female");
         default: return "/0";
     }
