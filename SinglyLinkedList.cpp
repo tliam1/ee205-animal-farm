@@ -44,7 +44,17 @@ Node *SinglyLinkedList::pop_front() noexcept {
 }
 
 void SinglyLinkedList::insert_after(Node *currentNode, Node *newNode) {
+    //@todo validate new node
+    if (isIn(newNode) || !isIn(currentNode) || empty()){
+        //logic error
+        return;
+    }
+    if (newNode == nullptr || currentNode == nullptr){
+        //invalid arguement
+        return;
+    }
 
+    //do the placing
 }
 
 void SinglyLinkedList::dump() const noexcept {
