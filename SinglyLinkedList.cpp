@@ -14,22 +14,16 @@
 SinglyLinkedList::SinglyLinkedList() {
     if (headPointer != nullptr)
         deleteAllNodes();
-
-    //@todo validate empty list
+    assert(validate());
 }
 
 void SinglyLinkedList::push_front(Node *newNode) {
-  //@todo validation
-   /* assert(newCat != nullptr); //assert(); makes life easy and saves space!!!!
-    newCat -> validate();
-    assert(dataValidation());
-    */
+    assert(validate());
     nodeCount++; //if database is good, add node and increment count
     //note -> is space sensitive, you cannot have white space before/after... learned that the hard way
     newNode->next = headPointer; // assign the new nodes next position to the old head
     headPointer = newNode; //reassign the head pointer (reassign next pointer of old node first)
-
-    //assert(dataValidation()); //assert(dataValidation()); makes life easy and saves space!!!!
+    assert(validate());
     return;
 }
 
@@ -37,32 +31,35 @@ Node *SinglyLinkedList::pop_front() noexcept {
     if (headPointer == nullptr)
         return nullptr;
 
+    assert(validate());
     Node* tempNode = headPointer; // dont create temp node until after conditions
     headPointer = headPointer->next; //how do I delete the data that is there?
     delete(tempNode); // like this?
     nodeCount--;
     headPointer->dump();
+    assert(validate());
+
     return headPointer;
 }
 
 void SinglyLinkedList::insert_after(Node *currentNode, Node *newNode) {
-    //@todo validate list
+
     if (isIn(newNode) || !isIn(currentNode) || empty()){
         //logic error
         return;
     }
     if (newNode == nullptr || currentNode == nullptr){
-        //invalid arguement
+        //invalid argument
         return;
     }
     //list is good
+
     if (currentNode == headPointer){
         //push front
         push_front(newNode);
         return;
     }
-
-
+    assert(validate());
     newNode = headPointer;
     while (newNode->next != currentNode){
         newNode = newNode->next;
@@ -72,7 +69,7 @@ void SinglyLinkedList::insert_after(Node *currentNode, Node *newNode) {
     nodeCount++;
     newNode->dump();
     return;
-    //@todo validate list
+    assert(validate());
     //do the placing
 }
 
@@ -96,9 +93,11 @@ bool SinglyLinkedList::validate() const noexcept {
         return false;
     }
 
-    if(empty()){
+    if(empty() && headPointer != nullptr){
         return false;
     }
+
+
 
     return true;
 }
