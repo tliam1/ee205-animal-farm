@@ -17,9 +17,9 @@ FORMAT_LINE_FOR_DUMP(this, this->next);
 
 bool Node::validate() const noexcept {
     if(next != this) {
-        return false;
+        return true;
     }
-    return true;
+    return false;
 }
 
 bool Node::operator>(const Node &rightSide) {

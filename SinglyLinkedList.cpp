@@ -40,11 +40,13 @@ Node *SinglyLinkedList::pop_front() noexcept {
     Node* tempNode = headPointer; // dont create temp node until after conditions
     headPointer = headPointer->next; //how do I delete the data that is there?
     delete(tempNode); // like this?
+    nodeCount--;
+    headPointer->dump();
     return headPointer;
 }
 
 void SinglyLinkedList::insert_after(Node *currentNode, Node *newNode) {
-    //@todo validate new node
+    //@todo validate list
     if (isIn(newNode) || !isIn(currentNode) || empty()){
         //logic error
         return;
@@ -53,14 +55,50 @@ void SinglyLinkedList::insert_after(Node *currentNode, Node *newNode) {
         //invalid arguement
         return;
     }
+    //list is good
+    if (currentNode == headPointer){
+        //push front
+        push_front(newNode);
+        return;
+    }
 
+
+    newNode = headPointer;
+    while (newNode->next != currentNode){
+        newNode = newNode->next;
+    }
+    newNode->next = currentNode->next;
+    currentNode->next = newNode;
+    nodeCount++;
+    newNode->dump();
+    return;
+    //@todo validate list
     //do the placing
 }
 
 void SinglyLinkedList::dump() const noexcept {
-
+    for(Node* tempNode = headPointer; tempNode != nullptr; tempNode = tempNode->next){
+        tempNode->dump();
+    }
 }
 
 bool SinglyLinkedList::validate() const noexcept {
-    return false;
+    int nodeCheck = 0;
+    for(Node* tempNode = headPointer; tempNode != nullptr; tempNode = tempNode->next){
+        if (!tempNode->validate()){
+            cout << "Node loops into itself" << endl;
+            return false;
+        }
+        nodeCheck++;
+    }
+    if(size() != nodeCheck) {
+        cout << "Node count is off" << endl;
+        return false;
+    }
+
+    if(empty()){
+        return false;
+    }
+
+    return true;
 }
