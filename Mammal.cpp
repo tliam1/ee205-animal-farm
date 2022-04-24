@@ -11,13 +11,20 @@
 
 #include "Mammal.h"
 
-Mammal::Mammal(const float newMaxWeight, const string &newSpecies) {
-
+Mammal::Mammal(const float newMaxWeight, const string &newSpecies) : Animal(newMaxWeight, MAMMAL_NAME, newSpecies) {
+    validateSpecies(newSpecies);
+    if (newMaxWeight <= 0) {
+        cout << "Bad max weight" << endl;
+        assert(false);
+    }
+    //the constructor creates everything from the ANIMAL CLASS
+    //NO NEED TO TOUCH ANYTHING
 }
 
 Mammal::Mammal(const ColorType newColor, const GenderType newGender, float newWeight, const float newMaxWeight,
-               const string newSpecies) {
-
+               const string &newSpecies) : Animal(newGender, newWeight, newMaxWeight, MAMMAL_NAME, newSpecies) {
+    color = newColor;
+    //sets the color, everything else is set in base class
 }
 
 ColorType Mammal::getColor() const noexcept {
