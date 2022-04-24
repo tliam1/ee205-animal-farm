@@ -21,13 +21,16 @@ Mammal::Mammal(const ColorType newColor, const GenderType newGender, float newWe
 }
 
 ColorType Mammal::getColor() const noexcept {
-    return ColorType::BLACK;
+    return color;
 }
 
 void Mammal::setColor(const ColorType newColor) noexcept {
-
+    if (color != ColorType::UNKNOWN_COLOR)
+        return;
+    color = newColor;
 }
 
 void Mammal::dump() const noexcept {
+    assert(Animal::validate());
     Animal::dump();
 }
