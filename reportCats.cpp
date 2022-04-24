@@ -53,7 +53,7 @@ class catClass* findCat(const string catName){
 
 }
 
-const char* collarColorName(const collarColor colorName){
+/*const char* collarColorName(const collarColor colorName){
     switch (colorName){
         case BLACK:
             return ("Black"); //do this and ignore local var. Returning local vars is a no no
@@ -69,11 +69,12 @@ const char* collarColorName(const collarColor colorName){
             return ("Pink");
         default:  return "/0";  //null
     }
+    */
 #ifdef DEBUG
     //removed debug as I removed the local variable
 #endif
     //return "/0";  //=null
-}
+//}
 
 const char* catBreedName(const BreedType breedName){
     switch(breedName){

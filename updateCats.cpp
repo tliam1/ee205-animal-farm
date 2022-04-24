@@ -51,13 +51,14 @@ bool updateCatWeight(unsigned long index, catWeight newWeight){
     return 1;
 }
 
-void updateCatCollar1(unsigned long index, collarColor newCollarCol){
+/*void updateCatCollar1(unsigned long index, collarColor newCollarCol){
     //cats[index].collarColor1 = newCollarCol;
 }
 
 void updateCatCollar2(unsigned long index, collarColor newCollarCol){
    // cats[index].collarColor2 = newCollarCol;
 }
+ */
 
 void updateLicense(unsigned long index, unsigned long long newLicense){
     //cats[index].license = newLicense;
