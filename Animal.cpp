@@ -12,18 +12,24 @@
 #include "Animal.h"
 
 Animal::Animal(const float newMaxWeight, const string &newClassification, const string &newSpecies) {
+    assert(validateClassification(newClassification));
+    assert(validateSpecies(newSpecies));
     animalWeight.maxWeight = newMaxWeight;
     animalWeight.hasMaxWeight = true;
     species = newSpecies;
     classification = newClassification;
+    assert(validate());
 }
 
 Animal::Animal(const GenderType newGender, const float newWeight, const float newMaxWeight,
                const string &newClassification, const string &newSpecies) {
+    assert(validateClassification(newClassification));
+    assert(validateSpecies(newSpecies));
     animalWeight = Weight(newWeight, newMaxWeight);
     setGender(newGender);
     species = newSpecies;
     classification = newClassification;
+    assert(validate());
 }
 
 string Animal::getKingdom() const noexcept {
@@ -55,7 +61,7 @@ void Animal::setWeight(const float newWeight) {
 void Animal::dump() const noexcept {
     Node::dump();
     validate();
-    getGender();
+    getGender(); //@todo figure out why this is in the call graph
 }
 
 bool Animal::validate() const noexcept {
@@ -68,8 +74,8 @@ bool Animal::validate() const noexcept {
 }
 
 bool Animal::validateClassification(const string &checkClassification) noexcept {
-    bool noWhiteSpace = checkClassification.find_first_not_of(' ') != string::npos;
-    if (checkClassification.empty() && !noWhiteSpace) {
+    //bool noWhiteSpace = checkClassification.find_first_not_of(' ') != string::npos;
+    if (checkClassification.empty() /*&& !noWhiteSpace*/) {
         cout << "Issues with Classification string" << endl;
         return false;
     }
@@ -77,8 +83,8 @@ bool Animal::validateClassification(const string &checkClassification) noexcept 
 }
 
 bool Animal::validateSpecies(const string &checkSpecies) noexcept {
-    bool noWhiteSpace = checkSpecies.find_first_not_of(' ') != string::npos;
-    if (checkSpecies.empty() && !noWhiteSpace) {
+    //bool noWhiteSpace = checkSpecies.find_first_not_of(' ') != string::npos;
+    if (checkSpecies.empty() /*&& !noWhiteSpace*/) {
         cout << "Issues with species string" << endl;
         return false;
     }
@@ -91,3 +97,4 @@ void Animal::setGender(const GenderType newGender) {
     }
 
 }
+

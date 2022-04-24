@@ -19,6 +19,9 @@ public:
            const string &newSpecies);
     Animal(const GenderType newGender, const float newWeight, const float newMaxWeight,
            const string &newClassification, const string &newSpecies);
+
+    Animal();
+
     string getKingdom() const noexcept;
     string getClassification() const noexcept;
     string getSpecies() const noexcept;

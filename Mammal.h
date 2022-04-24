@@ -11,6 +11,16 @@
 #pragma once
 #include "Animal.h"
 class Mammal : public Animal {
+public:
+    Mammal(const float newMaxWeight, const string &newSpecies);
+    Mammal (const ColorType newColor, const GenderType newGender, float newWeight,
+            const float newMaxWeight, const string newSpecies);
+    ColorType getColor() const noexcept;
+    void setColor(const ColorType newColor) noexcept;
+    void dump() const noexcept override;
 
+    const string MAMMAL_NAME = "Mammalian";
+protected:
+    ColorType color = ColorType::UNKNOWN_COLOR;
 };
 
