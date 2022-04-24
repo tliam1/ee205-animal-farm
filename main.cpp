@@ -15,62 +15,40 @@
 #include <cassert>  // For assert()
 #include <cstring>  // For strcmp()
 #include <exception>  // For try/catch blocks
-#include "catDatabase.h"
-#include "addCat.h"
-#include "reportCats.h"
-#include "deleteCats.h"
+#include "Animal.h"
+#include "Mammal.h"
+#include "Cat.h"
+#include "SinglyLinkedList.h"
+#include "List.h"
+#include "Node.h"
 #include "config.h"
 //#define DEBUG
-/// @internal Used to test the largest possible name
-#define MAX_NAME1    "1234567890123456789012345678901234567890123456789"
 
-/// @internal Used to test an illegal name (because it's too large by
-///           one character)
-#define ILLEGAL_NAME "12345678901234567890123456789012345678901234567890"
 
 //copied for testing purposes
 using namespace std;
 
-extern int numberOfCats;
 
 int main(){
     cout << "Starting " << PROGRAM_TITLE << endl ;
-    initializeDatabase();
-
-    bool result ;
-    result = addCat( new catClass( "Loki", MALE, PERSIAN, 1.0 )) ;
-    assert( result ) ;
-    //if( !result ) throw logic_error (PROGRAM_TITLE ": addCat() failed" ) ;
-    result = addCat( new catClass( "Milo", MALE, MANX , 1.1 )) ;
-    assert( result ) ;
-    result = addCat( new catClass( "Bella", FEMALE, MAINE_COON, 1.2 )) ;
-    assert( result ) ;
-    result = addCat( new catClass( "Kali", FEMALE, SHORTHAIR, 1.3 )) ;
-    assert( result ) ;
-    result = addCat( new catClass( "Trin", FEMALE, MANX, 1.4 )) ;
-    assert( result ) ;
-    result = addCat( new catClass( "Chili", MALE, SHORTHAIR, 1.5 )) ;
-    assert( result ) ;
-    result = addCat( new catClass( "Garfield", MALE, SHORTHAIR, 200000 )) ;
-    assert( result ) ;
-
-#ifdef DEBUG
-    result = addCat( new catClass( MAX_NAME1, MALE, SHORTHAIR, 1.5 )) ;//works
-    assert(result);
-    result = addCat( new catClass( "JOHN", MALE, SHORTHAIR, -1)) ; //no worky
-    assert(result);
-    result = addCat( new catClass( ILLEGAL_NAME, MALE, SHORTHAIR, 1.5 )) ; //no worky
-    assert(result);
-#endif
-
-    printAllCats() ;
-
-    deleteAllCats() ;
-
-    printAllCats() ;
-
+    SinglyLinkedList catDB ;
+    catDB.push_front( new Cat( "Loki", Color::CREAM, true, MALE, 1.0 ) ) ;
+    catDB.push_front( new Cat( "Milo", Color::BLACK, true, MALE, 1.1 ) ) ;
+    catDB.push_front( new Cat( "Bella", Color::BROWN, true, FEMALE, 1.2 ) ) ;
+    catDB.push_front( new Cat( "Kali", Color::CALICO, true, FEMALE, 1.3 ) ) ;
+    catDB.push_front( new Cat( "Trin", Color::WHITE, true, FEMALE, 1.4 ) ) ;
+    /*catDB.insert_after(catDB.get_first(), new Cat( "Chili", Color::GINGER, true,
+                                                   MALE, 1.5 ) );
+                                                   */
+    for( Animal* pAnimal = (Animal*)catDB.get_first() ; pAnimal != nullptr ; pAnimal =
+                                                                                     (Animal*)List::get_next( (Node*)pAnimal ) ) {
+        cout << pAnimal->speak() << endl;
+    }
+    catDB.validate() ;
+    catDB.dump() ;
+    catDB.deleteAllNodes() ;
+    catDB.dump() ;
     cout << "Done with " << PROGRAM_TITLE ;
-
     return( EXIT_SUCCESS ) ;
 }
 

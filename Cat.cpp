@@ -53,7 +53,8 @@ string Cat::speak() const noexcept {
 void Cat::dump() const noexcept {
     validate();
     Mammal::dump();
-    cout<< boolalpha << catName << "\t" << isCatFixed << endl;
+    FORMAT_LINE_FOR_DUMP("Cat", "name") << getName() << endl;
+    FORMAT_LINE_FOR_DUMP("Cat", "isFixed") << isFixed() << endl;
     //why do we call is fixed here?
 }
 

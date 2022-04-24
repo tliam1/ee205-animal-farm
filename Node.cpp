@@ -12,7 +12,8 @@
 
 void Node::dump() const {
 PRINT_HEADING_FOR_DUMP;
-FORMAT_LINE_FOR_DUMP(this, this->next);
+FORMAT_LINE_FOR_DUMP("Node", "this") << this << endl;
+FORMAT_LINE_FOR_DUMP("Node", "next") << this->next << endl;
 }
 
 bool Node::validate() const noexcept {

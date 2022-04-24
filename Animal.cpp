@@ -12,10 +12,11 @@
 #include "Animal.h"
 
 Animal::Animal(const float newMaxWeight, const string &newClassification, const string &newSpecies) {
-    assert(validateClassification(newClassification));
-    assert(validateSpecies(newSpecies));
-    animalWeight.maxWeight = newMaxWeight;
-    animalWeight.hasMaxWeight = true;
+  //  assert(validateClassification(newClassification));
+   // assert(validateSpecies(newSpecies));
+    cout<< "MaxWeight: " << newMaxWeight<<endl;
+    animalWeight->maxWeight = newMaxWeight;
+    animalWeight->hasMaxWeight = true;
     species = newSpecies;
     classification = newClassification;
     assert(validate());
@@ -23,9 +24,11 @@ Animal::Animal(const float newMaxWeight, const string &newClassification, const 
 
 Animal::Animal(const GenderType newGender, const float newWeight, const float newMaxWeight,
                const string &newClassification, const string &newSpecies) {
-    assert(validateClassification(newClassification));
-    assert(validateSpecies(newSpecies));
-    animalWeight = Weight(newWeight, newMaxWeight);
+  //  assert(validateClassification(newClassification));
+  //  assert(validateSpecies(newSpecies));
+    cout<< "curWeight (SHOULD BE -1): " << animalWeight->weight << endl;
+    animalWeight = new Weight (newWeight, newMaxWeight); //@todo overrides other classes instance???
+    cout<< "curWeight: " << animalWeight->weight << endl;
     setGender(newGender);
     species = newSpecies;
     classification = newClassification;
@@ -49,25 +52,30 @@ GenderType Animal::getGender() const noexcept {
 }
 
 float Animal::getWeight() const noexcept {
-    return animalWeight.weight;
+    return animalWeight->weight;
 }
 
 void Animal::setWeight(const float newWeight) {
-    if(newWeight > 0 && newWeight < animalWeight.maxWeight)
-        animalWeight.weight = newWeight;
+    if(newWeight > 0 && newWeight < animalWeight->maxWeight)
+        animalWeight->weight = newWeight;
     return;
 }
 
 void Animal::dump() const noexcept {
     Node::dump();
     validate();
-    getGender(); //@todo figure out why this is in the call graph
+    FORMAT_LINE_FOR_DUMP("Animal", "this") << this << endl;
+    FORMAT_LINE_FOR_DUMP("Animal", "Kingdom") << getKingdom() << endl;
+    FORMAT_LINE_FOR_DUMP("Animal", "Classification") << getClassification() << endl;
+    FORMAT_LINE_FOR_DUMP("Animal", "species") << getSpecies() << endl;
+    FORMAT_LINE_FOR_DUMP("Animal", "Gender") << getGender() << endl;
+    FORMAT_LINE_FOR_DUMP("Animal", "Weight") << getWeight() << endl;
 }
 
 bool Animal::validate() const noexcept {
-    assert(animalWeight.validate(animalWeight.weight));
-    assert(validateSpecies(getSpecies()));
-    assert(validateClassification(getClassification()));
+    assert(animalWeight->validate(animalWeight->weight));
+   // assert(validateSpecies(getSpecies()));
+    //assert(validateClassification(getClassification()));
     assert(Node::validate());
 
     return true;
@@ -76,7 +84,7 @@ bool Animal::validate() const noexcept {
 bool Animal::validateClassification(const string &checkClassification) noexcept {
     //bool noWhiteSpace = checkClassification.find_first_not_of(' ') != string::npos;
     if (checkClassification.empty() /*&& !noWhiteSpace*/) {
-        cout << "Issues with Classification string" << endl;
+        cout << "Issues with Classification string: " << checkClassification << endl;
         return false;
     }
     return true;
@@ -85,7 +93,7 @@ bool Animal::validateClassification(const string &checkClassification) noexcept 
 bool Animal::validateSpecies(const string &checkSpecies) noexcept {
     //bool noWhiteSpace = checkSpecies.find_first_not_of(' ') != string::npos;
     if (checkSpecies.empty() /*&& !noWhiteSpace*/) {
-        cout << "Issues with species string" << endl;
+        cout << "Issues with species string: " << checkSpecies <<endl;
         return false;
     }
     return true;

@@ -40,5 +40,8 @@ typedef enum class Color{
    UNKNOWN_COLOR,
    WHITE,
    BLACK,
-   MIX  //these are just examples for now
+   CREAM,
+   BROWN,
+   CALICO,
+   GINGER
 }ColorType;
