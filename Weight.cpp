@@ -17,7 +17,7 @@ const string Weight::POUND_LABEL = "Pound";
 const string Weight::KILO_LABEL = "Kilo";
 const string Weight::SLUG_LABEL = "Slug";
 float Weight::globalWeight = 0;
-float Weight::weight = UNKNOWN_WEIGHT; //do I need to convert max animalWeight??
+
 //initializing constants end
 
 Weight::Weight() noexcept {
@@ -183,9 +183,9 @@ float Weight::getWeight(UnitOfWeight newUnitOfWeight) noexcept {
     return weight;
 }
 
-void Weight::setWeight(float newWeight) const {
+void Weight::setWeight(float newWeight) {
     assert(isWeightValid(newWeight));
-    Weight::weight = newWeight;
+    weight = newWeight;
 }
 
 void Weight::setWeight(float newWeight, Weight::UnitOfWeight weightUnits) {
@@ -225,7 +225,7 @@ bool Weight::operator==(Weight& rhs_Weight){
     return (lhs_weight == rhs_weight);
 }
 
-bool Weight::operator+=(float rhs_addToWeight) const {
+bool Weight::operator+=(float rhs_addToWeight) {
     if (weight != UNKNOWN_WEIGHT && weight + rhs_addToWeight <= maxWeight){
         weight += rhs_addToWeight;
         return true;

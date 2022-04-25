@@ -22,7 +22,7 @@
 #include "List.h"
 #include "Node.h"
 #include "config.h"
-//#define DEBUG
+#define DEBUG
 
 
 //copied for testing purposes
@@ -32,11 +32,18 @@ using namespace std;
 int main(){
     cout << "Starting " << PROGRAM_TITLE << endl ;
     SinglyLinkedList catDB ;
-    catDB.push_front( new Cat( "Loki", Color::CREAM, true, MALE, 1.0 ) ) ;
-    catDB.push_front( new Cat( "Milo", Color::BLACK, true, MALE, 1.1 ) ) ;
-    catDB.push_front( new Cat( "Bella", Color::BROWN, true, FEMALE, 1.2 ) ) ;
-    catDB.push_front( new Cat( "Kali", Color::CALICO, true, FEMALE, 1.3 ) ) ;
-    catDB.push_front( new Cat( "Trin", Color::WHITE, true, FEMALE, 1.4 ) ) ;
+#ifdef DEBUG
+    Cat temp = Cat("Nick", ColorType::BLACK, true, MALE, 1.0);
+    Cat temp2 = Cat("Christ", ColorType::BLACK, true, MALE, 1.2);//@todo overrides the all others
+    if(temp.getWeight() == temp2.getWeight()){
+        assert(false);
+    }
+#endif
+    catDB.push_front( new Cat( "Loki", ColorType::CREAM, true, MALE, 1.0 ) ) ;
+    catDB.push_front( new Cat( "Milo", ColorType::BLACK, true, MALE, 1.1 ) ) ;
+    catDB.push_front( new Cat( "Bella", ColorType::BROWN, true, FEMALE, 1.2 ) ) ;
+    catDB.push_front( new Cat( "Kali", ColorType::CALICO, true, FEMALE, 1.3 ) ) ;
+    catDB.push_front( new Cat( "Trin", ColorType::WHITE, true, FEMALE, 1.4 ) ) ;
     /*catDB.insert_after(catDB.get_first(), new Cat( "Chili", Color::GINGER, true,
                                                    MALE, 1.5 ) );
                                                    */

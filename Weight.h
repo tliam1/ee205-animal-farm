@@ -24,7 +24,7 @@ public:
     static const string KILO_LABEL;
     static const string SLUG_LABEL;
     static float globalWeight; //remove later
-    static float weight; //can change once set
+
     friend class Animal;
 
 
@@ -33,7 +33,7 @@ private:
     UnitOfWeight unitOfWeight = POUND; //once set cant change (not initialization though)
     float maxWeight = UNKNOWN_WEIGHT; //cant change once set
     bool hasMaxWeight = false;
-
+    float weight = UNKNOWN_WEIGHT; //can change once set
 
 
 //methods
@@ -51,7 +51,7 @@ public:
     float getMaxWeight() const noexcept;
     UnitOfWeight  getWeightUnit() const noexcept;
     float getWeight(UnitOfWeight) noexcept;
-    void setWeight(float newWeight) const;
+    void setWeight(float newWeight);
     void setWeight(float newWeight, UnitOfWeight weightUnits);
     //static methods
     static float fromKilogramToPound( float kilogram ) noexcept;
@@ -67,7 +67,7 @@ public:
     bool isWeightValid(float checkWeight) const;
     void dump() const;
     bool operator==(Weight& rhs_Weight);
-    bool operator+=(float rhs_addToWeight) const;
+    bool operator+=(float rhs_addToWeight);
     bool operator<(Weight& rhs_Weight);
 
 
