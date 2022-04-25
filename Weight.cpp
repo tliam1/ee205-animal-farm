@@ -27,7 +27,6 @@ Weight::Weight() noexcept {
 }
 
 Weight::Weight(float newWeight) : Weight(){
-    //@todo validation
     assert(isWeightValid(newWeight));
     weight = newWeight;
     weightIsKnown = true;
@@ -36,7 +35,6 @@ Weight::Weight(float newWeight) : Weight(){
 }
 
 Weight::Weight(UnitOfWeight newUnitOfWeight) noexcept : Weight(){
-    //@todo validation
     unitOfWeight = newUnitOfWeight;
     weight = UNKNOWN_WEIGHT;
     //what is the default MAX WEIGHT??
@@ -44,7 +42,6 @@ Weight::Weight(UnitOfWeight newUnitOfWeight) noexcept : Weight(){
 }
 
 Weight::Weight(float newWeight, UnitOfWeight newUnitOfWeight): Weight(){
-    //@todo validation
     assert(isWeightValid(newWeight));
     weight = newWeight;
     weightIsKnown = true;
@@ -54,7 +51,6 @@ Weight::Weight(float newWeight, UnitOfWeight newUnitOfWeight): Weight(){
 }
 
 Weight::Weight(float newWeight, float newMaxWeight) : Weight() {
-    //@todo validation
     assert(isWeightValid(newWeight));
     weight = newWeight;
     weightIsKnown = true;
@@ -64,7 +60,6 @@ Weight::Weight(float newWeight, float newMaxWeight) : Weight() {
 }
 
 Weight::Weight(UnitOfWeight newUnitOfWeight, float newMaxWeight) : Weight() {
-    //@todo validation
     weight = UNKNOWN_WEIGHT;
     if (newMaxWeight > 0)
         maxWeight = newMaxWeight;

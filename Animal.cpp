@@ -16,8 +16,8 @@ Animal::Animal(const float newMaxWeight, const string &newClassification, const 
     assert(validateSpecies(newSpecies));
     cout<< newClassification << " New Species: " << newSpecies<<endl;
     cout<< "MaxWeight: " << newMaxWeight<<endl;
-    animalWeight->maxWeight = newMaxWeight;
-    animalWeight->hasMaxWeight = true;
+    animalWeight.maxWeight = newMaxWeight;
+    animalWeight.hasMaxWeight = true;
     species = newSpecies;
     classification = newClassification;
     assert(validate());
@@ -28,9 +28,9 @@ Animal::Animal(const GenderType newGender, const float newWeight, const float ne
     assert(validateClassification(newClassification));
     assert(validateSpecies(newSpecies));
     cout<< newClassification << " New Species: " << newSpecies<<endl;
-    cout<< "curWeight (SHOULD BE -1): " << animalWeight->weight << endl;
-    animalWeight = new Weight (newWeight, newMaxWeight); //@todo overrides other classes instance???
-    cout<< "curWeight: " << animalWeight->weight << endl;
+    cout<< "curWeight (SHOULD BE -1): " << animalWeight.weight << endl;
+    animalWeight = Weight(newWeight, newMaxWeight); //@todo overrides other classes instance???
+    cout<< "curWeight: " << animalWeight.weight << endl;
     setGender(newGender);
     species = newSpecies;
     classification = newClassification;
@@ -54,12 +54,12 @@ GenderType Animal::getGender() const noexcept {
 }
 
 float Animal::getWeight() const noexcept {
-    return animalWeight->weight;
+    return animalWeight.weight;
 }
 
 void Animal::setWeight(const float newWeight) {
-    if(newWeight > 0 && newWeight < animalWeight->maxWeight)
-        animalWeight->weight = newWeight;
+    if(newWeight > 0 && newWeight < animalWeight.maxWeight)
+        animalWeight.weight = newWeight;
     return;
 }
 
@@ -75,7 +75,7 @@ void Animal::dump() const noexcept {
 }
 
 bool Animal::validate() const noexcept {
-    assert(animalWeight->validate(animalWeight->weight));
+    assert(animalWeight.validate(animalWeight.weight));
     assert(validateSpecies(getSpecies()));
     assert(validateClassification(getClassification()));
     assert(Node::validate());

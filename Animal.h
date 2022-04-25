@@ -42,7 +42,7 @@ private:
     string species;
     string classification;
     GenderType gender = UNKNOWN_GENDER;
-    Weight* animalWeight;
+    Weight animalWeight;
 
 };
 

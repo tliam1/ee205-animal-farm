@@ -50,7 +50,7 @@ private:
     string catName; //name (empty at default)
     GenderType gender; //gender (unknown at default)
     BreedType breed; // breed (Unknown at default)
-    bool isFixed; // false at default
+    bool isFixed = false; // false at default
     catWeight weight; // unknown at default (-1)
 public:
     catClass* next;
