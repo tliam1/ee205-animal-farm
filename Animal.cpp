@@ -12,8 +12,9 @@
 #include "Animal.h"
 
 Animal::Animal(const float newMaxWeight, const string &newClassification, const string &newSpecies) {
-  //  assert(validateClassification(newClassification));
-   // assert(validateSpecies(newSpecies));
+    assert(validateClassification(newClassification));
+    assert(validateSpecies(newSpecies));
+    cout<< newClassification << " New Species: " << newSpecies<<endl;
     cout<< "MaxWeight: " << newMaxWeight<<endl;
     animalWeight->maxWeight = newMaxWeight;
     animalWeight->hasMaxWeight = true;
@@ -24,8 +25,9 @@ Animal::Animal(const float newMaxWeight, const string &newClassification, const 
 
 Animal::Animal(const GenderType newGender, const float newWeight, const float newMaxWeight,
                const string &newClassification, const string &newSpecies) {
-  //  assert(validateClassification(newClassification));
-  //  assert(validateSpecies(newSpecies));
+    assert(validateClassification(newClassification));
+    assert(validateSpecies(newSpecies));
+    cout<< newClassification << " New Species: " << newSpecies<<endl;
     cout<< "curWeight (SHOULD BE -1): " << animalWeight->weight << endl;
     animalWeight = new Weight (newWeight, newMaxWeight); //@todo overrides other classes instance???
     cout<< "curWeight: " << animalWeight->weight << endl;
@@ -62,8 +64,8 @@ void Animal::setWeight(const float newWeight) {
 }
 
 void Animal::dump() const noexcept {
-    Node::dump();
     validate();
+    Node::dump();
     FORMAT_LINE_FOR_DUMP("Animal", "this") << this << endl;
     FORMAT_LINE_FOR_DUMP("Animal", "Kingdom") << getKingdom() << endl;
     FORMAT_LINE_FOR_DUMP("Animal", "Classification") << getClassification() << endl;
@@ -74,8 +76,8 @@ void Animal::dump() const noexcept {
 
 bool Animal::validate() const noexcept {
     assert(animalWeight->validate(animalWeight->weight));
-   // assert(validateSpecies(getSpecies()));
-    //assert(validateClassification(getClassification()));
+    assert(validateSpecies(getSpecies()));
+    assert(validateClassification(getClassification()));
     assert(Node::validate());
 
     return true;

@@ -26,7 +26,7 @@ public:
     bool validate() const noexcept override;
 
     bool validateName(const string &newName) const;
-    const string SPECIES_NAME = "Felis Catus";
+    inline static const string SPECIES_NAME = "Felis Catus";
     constexpr static const float MAX_WEIGHT = 40;
 
 protected:

@@ -21,7 +21,7 @@ public:
     void setColor(const ColorType newColor) noexcept;
     void dump() const noexcept override;
 
-    const string MAMMAL_NAME = "Mammalian";
+    inline static const string MAMMAL_NAME = "Mammalian";
 protected:
     ColorType color = ColorType::UNKNOWN_COLOR;
 };
