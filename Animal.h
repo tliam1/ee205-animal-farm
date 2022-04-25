@@ -12,6 +12,7 @@
 #include "Weight.h"
 #include "config.h"
 #include "Node.h"
+#include "reportCats.h"
 using namespace std;
 class Animal : public Node{
 public:

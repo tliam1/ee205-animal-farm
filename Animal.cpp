@@ -14,8 +14,6 @@
 Animal::Animal(const float newMaxWeight, const string &newClassification, const string &newSpecies) {
     assert(validateClassification(newClassification));
     assert(validateSpecies(newSpecies));
-    cout<< newClassification << " New Species: " << newSpecies<<endl;
-    cout<< "MaxWeight: " << newMaxWeight<<endl;
     animalWeight.maxWeight = newMaxWeight;
     animalWeight.hasMaxWeight = true;
     species = newSpecies;
@@ -27,10 +25,7 @@ Animal::Animal(const GenderType newGender, const float newWeight, const float ne
                const string &newClassification, const string &newSpecies) {
     assert(validateClassification(newClassification));
     assert(validateSpecies(newSpecies));
-    cout<< newClassification << " New Species: " << newSpecies<<endl;
-    cout<< "curWeight (SHOULD BE -1): " << animalWeight.weight << endl;
-    animalWeight = Weight(newWeight, newMaxWeight); //@todo overrides other classes instance???
-    cout<< "curWeight: " << animalWeight.weight << endl;
+    animalWeight = Weight(newWeight, newMaxWeight);
     setGender(newGender);
     species = newSpecies;
     classification = newClassification;
@@ -70,7 +65,7 @@ void Animal::dump() const noexcept {
     FORMAT_LINE_FOR_DUMP("Animal", "Kingdom") << getKingdom() << endl;
     FORMAT_LINE_FOR_DUMP("Animal", "Classification") << getClassification() << endl;
     FORMAT_LINE_FOR_DUMP("Animal", "species") << getSpecies() << endl;
-    FORMAT_LINE_FOR_DUMP("Animal", "Gender") << getGender() << endl;
+    FORMAT_LINE_FOR_DUMP("Animal", "Gender") << catGenderName(getGender()) << endl;
     FORMAT_LINE_FOR_DUMP("Animal", "Weight") << getWeight() << endl;
 }
 

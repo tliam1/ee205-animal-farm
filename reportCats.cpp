@@ -11,72 +11,7 @@
 #include "reportCats.h"
 #define DEBUG
 
-extern numCats numberOfCats;
-extern class catClass* catDatabaseHeadPointer;
-
-/*void printCat(unsigned long index){
-    if (strlen(cats[index].name)==0 || index < 0){
-        fprintf(stdout, "%s: Bad cat [%lu]\n", REPORT, index);
-    }else{
-        printf("cat index = [%lu] name = [%s], gender=[%s], breed=[%s], isFixed[%d], animalWeight=[%f], collarColor1=[%s], collarColor2=[%s], license=[%llu]\n", index, cats[index].name, catGenderName(cats[index].genders), catBreedName(cats[index].breeds), cats[index].isFixed, cats[index].animalWeight, collarColorName(cats[index].collarColor1), collarColorName(cats[index].collarColor2), cats[index].license);
-    }
-    return;
-}
- */
-//@todo might want us to do this later, think about process
-
-void printAllCats(){
-   /* if(!dataValidation()){
-        std::cout<< "our data is compromised" << std::endl;
-        return;
-    }
-    */
-    assert(dataValidation());
-
-    //while the cat does not equal the null pointer, start from head and move down the list
-    for(catClass* cat = catDatabaseHeadPointer; cat != nullptr; cat = cat->next){
-        cat->printName();
-    }
-}
-
-class catClass* findCat(const string catName){
-    if(!catClass().validateName(catName)){
-        return nullptr; //no cat with this name
-    }
-    for(catClass* cat = catDatabaseHeadPointer; cat != nullptr; cat = cat->next){
-        if(catName == cat->getCatName()){
-            return cat; //we found our cat!!!
-        }
-    }
-
-    return nullptr; //no cat found
-
-}
-
-/*const char* collarColorName(const collarColor colorName){
-    switch (colorName){
-        case BLACK:
-            return ("Black"); //do this and ignore local var. Returning local vars is a no no
-        case WHITE:
-            return ("White");
-        case RED:
-            return ("Red");
-        case BLUE:
-            return ("Blue");
-        case GREEN:
-            return ("Green");
-        case PINK:
-            return ("Pink");
-        default:  return "/0";  //null
-    }
-    */
-#ifdef DEBUG
-    //removed debug as I removed the local variable
-#endif
-    //return "/0";  //=null
-//}
-
-const char* catBreedName(const BreedType breedName){
+const string catBreedName(const BreedType breedName){
     switch(breedName){
         case UNKNOWN_BREED:
             return ("Unknown Breed");
@@ -95,7 +30,7 @@ const char* catBreedName(const BreedType breedName){
     //return "/0";   //error
 }
 
-const char* catGenderName(const GenderType genderName){
+const string catGenderName(const GenderType genderName){
     switch(genderName){
         case GenderType::UNKNOWN_GENDER:
             return ("Unknown Breed");
@@ -106,4 +41,27 @@ const char* catGenderName(const GenderType genderName){
         default: return "/0";
     }
     //return "/0";
+}
+
+const string catColorName(const ColorType colorName) {
+    switch( colorName ) {
+        case ColorType::UNKNOWN_COLOR:
+            return "Unknown gender";
+        case ColorType::WHITE:
+            return "White";
+        case ColorType::BLACK:
+            return "Black";
+        case ColorType::CREAM:
+            return "Cream";
+        case ColorType::BROWN:
+            return "Brown";
+        case ColorType::CALICO:
+            return "Calico";
+        case ColorType::GINGER:
+            return "Ginger";
+        default:
+            cout << "Not a valid Gender" << endl;
+            assert(false);
+
+    }
 }

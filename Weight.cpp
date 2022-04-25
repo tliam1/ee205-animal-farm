@@ -240,5 +240,3 @@ bool Weight::operator<(Weight& rhs_Weight) {
                        rhs_Weight.getWeight(Weight::POUND) : 0;
     return (lhs_weight > rhs_weight);
 }
-
-//

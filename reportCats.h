@@ -9,13 +9,11 @@
 /// @date   18_Mar_2022
 ///////////////////////////////////////////////////////////////////////////////
 #pragma once
-
-#include "catDatabase.h"
-//#include "catClass.h"
+#include "config.h"
+#include <cstring>
 using namespace std;
-void printCat(unsigned long);
-void printAllCats();
-class catClass* findCat(const string catName);
-//const char* collarColorName(const collarColor colorName);
-const char* catBreedName(const BreedType breedName);
-const char* catGenderName(const GenderType genderName);
+
+
+const string catBreedName(const BreedType breedName);
+const string catGenderName(const GenderType genderName);
+const string catColorName(const ColorType colorName);
