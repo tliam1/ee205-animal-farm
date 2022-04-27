@@ -22,7 +22,7 @@
 #include "List.h"
 #include "Node.h"
 #include "config.h"
-//#define DEBUG
+#define DEBUG
 
 
 //copied for testing purposes
@@ -44,13 +44,15 @@ int main(){
     catDB.push_front( new Cat( "Bella", ColorType::BROWN, true, GenderType::FEMALE, 1.2 ) ) ;
     catDB.push_front( new Cat( "Kali", ColorType::CALICO, true, GenderType::FEMALE, 1.3 ) ) ;
     catDB.push_front( new Cat( "Trin", ColorType::WHITE, true, GenderType::FEMALE, 1.4 ) ) ;
-    /*catDB.insert_after(catDB.get_first(), new Cat( "Chili", Color::GINGER, true,
-                                                   MALE, 1.5 ) );
-                                                   */
+    catDB.insert_after(catDB.get_first(), new Cat( "Chili", Color::GINGER, true,
+                                                   GenderType::MALE, 1.5 ) );
+
     for( Animal* pAnimal = (Animal*)catDB.get_first() ; pAnimal != nullptr ; pAnimal =
                                                                                      (Animal*)List::get_next( (Node*)pAnimal ) ) {
         cout << pAnimal->speak() << endl;
     }
+
+    assert(catDB.isSorted());
     catDB.validate() ;
     catDB.dump() ;
     catDB.deleteAllNodes() ;

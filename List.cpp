@@ -22,12 +22,10 @@ unsigned int List::size() const noexcept {
 }
 
 bool List::isIn(Node *aNode) const {
-    //@todo validation
     for(Node* tempNode = headPointer; tempNode != nullptr; tempNode = tempNode->next){
         if(aNode == tempNode){
             cout << "is In = true" << endl;
             return true; //we found our node!!!
-            //@todo Check to make sure this works. I don't know yet
         }
     }
     return false;
@@ -38,7 +36,6 @@ bool List::isSorted() const noexcept {
         if (!tempNode->operator>(*tempNode->next)){
             cout<<"UNSORTED DATA"<<endl;
             return false;
-            //@todo testing
         }
     }
 
@@ -53,7 +50,6 @@ Node *List::get_first() const noexcept {
 }
 
 void List::deleteAllNodes() noexcept {
-    //@todo validation
     Node* current = headPointer;
     Node* next = nullptr;
 
@@ -77,5 +73,5 @@ Node *List::get_next(const Node *currentNode) {
     if (currentNode->next != nullptr)
         return currentNode->next;
 
-    return nullptr; //@todo throw an invalid argument
+    throw std::invalid_argument("No Next Node At the Given Node");
 }

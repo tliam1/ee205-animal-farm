@@ -45,7 +45,7 @@ typedef enum class Breed{
 } BreedType;
 //typedef enum {BLACK, WHITE, RED, BLUE, GREEN, PINK} collarColor;
 
-//@todo create a enum class (LAST THEY ARENT WORKING RIGHT)
+
 
 typedef enum class Color{
    UNKNOWN_COLOR,
