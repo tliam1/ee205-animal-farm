@@ -42,3 +42,4 @@ void Mammal::dump() const noexcept {
     Animal::dump();
     FORMAT_LINE_FOR_DUMP("Mammal", "color") << catColorName(getColor()) << endl;
 }
+//

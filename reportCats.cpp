@@ -13,17 +13,17 @@
 
 const string catBreedName(const BreedType breedName){
     switch(breedName){
-        case UNKNOWN_BREED:
+        case BreedType::UNKNOWN_BREED:
             return ("Unknown Breed");
-        case MAINE_COON:
+        case BreedType::MAINE_COON:
             return ("Maine Coon");
-        case MANX:
+        case BreedType::MANX:
             return ("Manx");
-        case SHORTHAIR:
+        case BreedType::SHORTHAIR:
             return ("Shorthair");
-        case PERSIAN:
+        case BreedType::PERSIAN:
             return ("Persian");
-        case SPHYNX:
+        case BreedType::SPHYNX:
             return ("Sphynx");
         default: return "/0";
     }

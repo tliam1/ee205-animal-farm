@@ -97,7 +97,7 @@ bool Animal::validateSpecies(const string &checkSpecies) noexcept {
 }
 
 void Animal::setGender(const GenderType newGender) {
-    if (gender == UNKNOWN_GENDER){
+    if (gender == GenderType::UNKNOWN_GENDER){
         gender = newGender;
     }
 

@@ -42,7 +42,7 @@ protected:
 private:
     string species;
     string classification;
-    GenderType gender = UNKNOWN_GENDER;
+    GenderType gender = GenderType::UNKNOWN_GENDER;
     Weight animalWeight; //This somehow gets overridden by other classes
 
 };
