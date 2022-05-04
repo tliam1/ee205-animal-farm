@@ -4,8 +4,8 @@ EE205 Animal Farm
 <img src="images/animal_farm_full.jpg" style="width:300px; float: left; margin: 0 10px 10px 0;" alt="Animal farm"/>
 
 Animal Farm is a series of labs intended to teach the basics of C and C++.  It's also intended to introduce good
-Software Engineering practices.  Students are expected to "Live" in
-this project as the code evolves over a series of requirements.
+Software Engineering practices. <!---Students are expected to "Live" in
+this project as the code evolves over a series of requirements.--->
 
 #### Links
 The project's home page (hosted by GitHub) is [here](https://github.com/tliam1/ee205-animal-farm)
