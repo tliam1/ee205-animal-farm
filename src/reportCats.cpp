@@ -9,7 +9,7 @@
 /// @date   18_Mar_2022
 ///////////////////////////////////////////////////////////////////////////////
 #include "reportCats.h"
-#define DEBUG
+//#define DEBUG
 
 const string catBreedName(const BreedType breedName){
     switch(breedName){

@@ -73,5 +73,5 @@ Node *List::get_next(const Node *currentNode) {
     if (currentNode->next != nullptr)
         return currentNode->next;
 
-    throw std::invalid_argument("No Next Node At the Given Node");
+    //throw std::invalid_argument("No Next Node At the Given Node"); //asked prof
 }

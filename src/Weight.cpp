@@ -124,7 +124,7 @@ float Weight::convertWeight(float fromWeight, Weight::UnitOfWeight fromUnit, Wei
         case POUND:
             weight = weight;
 #ifdef DEBUG
-            cout << animalWeight << endl;
+         //   cout << animalWeight << endl;
 #endif
             unitOfWeight = POUND;
             break;
@@ -139,7 +139,7 @@ float Weight::convertWeight(float fromWeight, Weight::UnitOfWeight fromUnit, Wei
             maxWeight = fromPoundToSlug(maxWeight);
             unitOfWeight = SLUG;
 #ifdef DEBUG
-            cout << animalWeight << endl;
+           // cout << animalWeight << endl;
 #endif
             break;
         default:
