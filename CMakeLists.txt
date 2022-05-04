@@ -92,4 +92,6 @@ endif (DOXYGEN_FOUND)
 
 message(STATUS "PROJECT_BINARY_DIR = [${PROJECT_BINARY_DIR}]")
 
-add_executable(ee205_animal_farm src/main.cpp src/config.h src/reportCats.cpp src/reportCats.h src/Weight.cpp src/Weight.h src/Node.cpp src/Node.h src/List.cpp src/List.h src/SinglyLinkedList.cpp src/SinglyLinkedList.h src/Animal.cpp src/Animal.h src/Mammal.cpp src/Mammal.h src/Cat.cpp src/Cat.h)
+add_executable(main.Good1 src/main.cpp src/config.h src/reportCats.cpp src/reportCats.h src/Weight.cpp src/Weight.h src/Node.cpp src/Node.h src/List.cpp src/List.h src/SinglyLinkedList.cpp src/SinglyLinkedList.h src/Animal.cpp src/Animal.h src/Mammal.cpp src/Mammal.h src/Cat.cpp src/Cat.h)
+add_executable(main.Good2 src/main.cpp src/config.h src/reportCats.cpp src/reportCats.h src/Weight.cpp src/Weight.h src/Node.cpp src/Node.h src/List.cpp src/List.h src/SinglyLinkedList.cpp src/SinglyLinkedList.h src/Animal.cpp src/Animal.h src/Mammal.cpp src/Mammal.h src/Cat.cpp src/Cat.h)
+add_executable(main.Good3 src/main.cpp src/config.h src/reportCats.cpp src/reportCats.h src/Weight.cpp src/Weight.h src/Node.cpp src/Node.h src/List.cpp src/List.h src/SinglyLinkedList.cpp src/SinglyLinkedList.h src/Animal.cpp src/Animal.h src/Mammal.cpp src/Mammal.h src/Cat.cpp src/Cat.h)
