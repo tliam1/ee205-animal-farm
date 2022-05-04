@@ -22,7 +22,7 @@
 #include "List.h"
 #include "Node.h"
 #include "config.h"
-#define DEBUG
+//#define DEBUG
 
 
 //copied for testing purposes
