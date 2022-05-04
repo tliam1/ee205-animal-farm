@@ -25,7 +25,7 @@ public:
     virtual Node* pop_front() noexcept=0; //this is to be overridden in child class(es)
     virtual void dump() const noexcept=0;
     virtual bool validate() const noexcept=0;
-
+    ///gets the next node in the list
     static Node* get_next (const Node *currentNode);
 
 protected:
